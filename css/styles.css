@@ -104,3 +104,19 @@ p {
       display: inline-block; }
     .items li a:hover h2 {
       color: #4699d3; }
+
+#about {
+  top: 20%; }
+
+h1 {
+  color: #4699D3;
+  font-family: Bitwise, sans-serif;
+  font-size: 80px;
+  position: relative;
+  text-align: center; }
+
+p {
+  color: #fff;
+  font-family: Hermit, sans-serif;
+  margin-top: 12px;
+  text-align: center; }
