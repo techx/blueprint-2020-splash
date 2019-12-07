@@ -1,5 +1,6 @@
-#about {
-    top: 20%;
+#register {
+    top: 5%;
+    transform: translateX(-50%);
 }
 
 h1 {
@@ -15,8 +16,7 @@ p {
     color: #fff;
     display: block;
     font-family: Hermit, sans-serif;
-    margin: 12px auto 0;
-    // position: relative;
+    margin: 25vh auto;
+    line-height: 2;
     text-align: center;
-    width: 65%;
 }
