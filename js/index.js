@@ -10,15 +10,15 @@ if (isMobile) {
 }
 
 function updatePage() {
-  var pages = ["home", "about", "schedule", "faq"];
-  var newPageId = window.location.hash.substring(1);
+  const pages = ["home", "about", "schedule", "faq"];
+  const newPageId = window.location.hash.substring(1);
 
   if (!pages.includes(newPageId)) {
     return;
   }
 
-  for (var i = 0; i < pages.length; i++) {
-    var page = document.getElementById(pages[i]);
+  for (let i = 0; i < pages.length; i++) {
+    const page = document.getElementById(pages[i]);
 
     if (page === null) {
       continue;
@@ -29,12 +29,40 @@ function updatePage() {
 
   document.getElementById(newPageId).classList.remove("hidden");
 
-  var menuButton = document.getElementById("menu-button");
+  const menuButton = document.getElementById("menu-button");
 
   if (newPageId === "home") {
     menuButton.classList.add("hidden");
   } else {
     menuButton.classList.remove("hidden");
+  }
+}
+
+function generateSquares() {
+  const numSquares = 25;
+  const squares = document.getElementById("squares");
+
+  for (let i = 0; i < numSquares; i++) {
+    const square = document.createElement("div");
+    square.classList.add("square");
+
+    const rand = Math.random();
+
+    if (rand < 0.25) {
+      square.classList.add("red");
+    } else if (rand < 0.5) {
+      square.classList.add("blue");
+    } else if (rand < 0.75) {
+      square.classList.add("purple");
+    } else {
+      square.classList.add("yellow");
+    }
+
+    // Random position between 5-95% vertically and horizontally
+    square.style.top = (Math.random() * 90 + 5) + "%";
+    square.style.left = (Math.random() * 90 + 5) + "%";
+
+    squares.appendChild(square);
   }
 }
 
@@ -46,4 +74,6 @@ window.onload = function() {
   } else {
     document.getElementById("menu-button").classList.add("hidden");
   }
+
+  generateSquares();
 };
