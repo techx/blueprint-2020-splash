@@ -58,6 +58,30 @@ body {
   width: 100%;
   height: 70vh; }
 
+#squares {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh; }
+  #squares .square {
+    animation: float 4s infinite;
+    height: 24px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 24px; }
+    #squares .square.yellow {
+      background: #fff600;
+      opacity: 0.6; }
+    #squares .square.blue {
+      background: #5eebff;
+      opacity: 0.68; }
+    #squares .square.red {
+      background: #f92e54;
+      opacity: 0.41; }
+    #squares .square.purple {
+      background: #9600c0;
+      opacity: 0.6; }
+
 .container {
   position: absolute;
   top: 45%;
@@ -83,9 +107,46 @@ body {
   font-size: 5em;
   font-family: Bitwise; }
 
+@keyframes float {
+  from {
+    margin-top: 0; }
+  50% {
+    margin-top: 32px; }
+  to {
+    margin-top: 0; } }
+
 @media only screen and (max-width: 760px) {
   .container {
     width: 90%; } }
+
+#about {
+  top: 20%; }
+
+h1 {
+  color: #4699D3;
+  font-family: Bitwise, sans-serif;
+  font-size: 80px;
+  position: relative;
+  text-align: center; }
+
+p {
+  color: #fff;
+  display: block;
+  font-family: Hermit, sans-serif;
+  margin: 12px auto 0;
+  text-align: center;
+  width: 65%; }
+
+video {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; }
+  video.fade-out {
+    animation-name: fade-out; }
 
 .logo {
   display: block;
@@ -134,6 +195,12 @@ p {
     .items li a:hover h2 {
       color: #4699d3; }
 
+@keyframes fade-out {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
 @media only screen and (max-width: 760px) {
   .logo {
     width: 80vw; }
@@ -143,7 +210,9 @@ p {
     height: 24px;
     margin-right: 12px; }
   .items li a h2 {
-    font-size: 28px; } }
+    font-size: 28px; }
+  #play-button {
+    display: none; } }
 
 .schedule-items {
   display: block;
@@ -202,3 +271,38 @@ p {
   margin-top: 10px;
   margin-bottom: 5px;
   font-size: 17px; }
+
+#register {
+  top: 5%;
+  transform: translateX(-50%); }
+  #register h1 {
+    color: #4699D3;
+    font-family: Bitwise, sans-serif;
+    font-size: 80px;
+    position: relative;
+    text-align: center; }
+  #register p {
+    color: #fff;
+    display: block;
+    font-family: Hermit, sans-serif;
+    margin: 25vh auto;
+    line-height: 2;
+    text-align: center; }
+
+.question {
+  cursor: pointer;
+  position: relative;
+  font-family: Hermit, sans-serif;
+  color: #fff;
+  font-size: 20px;
+  padding-bottom: 1pt; }
+
+.answer {
+  color: #fff;
+  font-family: Hermit, sans-serif;
+  font-size: 15px;
+  letter-spacing: .05em;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  padding-left: 1.1em; }
