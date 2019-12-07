@@ -10,12 +10,20 @@ body {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 100vh;
+	height: 70vh;
 }
 
 .container {
     position: absolute;
-    top: 50%;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 760px;
+}
+
+.pg-container {
+    position: absolute;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 760px;
@@ -38,8 +46,15 @@ body {
     }
 }
 
+.page-title {
+	color: $light_accent;
+	font-size: 5em;
+	font-family: Bitwise;
+}
+
 @media only screen and (max-width: 760px) {
     .container {
         width: 90%;
     }
 }
+

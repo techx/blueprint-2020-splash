@@ -56,11 +56,18 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 100vh; }
+  height: 70vh; }
 
 .container {
   position: absolute;
-  top: 50%;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 760px; }
+
+.pg-container {
+  position: absolute;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 760px; }
@@ -77,6 +84,11 @@ body {
   left: 16px; }
   #menu-button:hover {
     color: #4699d3; }
+
+.page-title {
+  color: #4699d3;
+  font-size: 5em;
+  font-family: Bitwise; }
 
 @media only screen and (max-width: 760px) {
   .container {
@@ -139,3 +151,21 @@ p {
     margin-right: 12px; }
   .items li a h2 {
     font-size: 28px; } }
+
+.schedule-table {
+  display: table;
+  margin: 16px auto 0; }
+  .schedule-table tr th {
+    display: block; }
+    .schedule-table tr th .schedule-time {
+      color: #fff;
+      display: inline-block;
+      font-family: Hermit, sans-serif;
+      font-size: 36px;
+      vertical-align: middle; }
+    .schedule-table tr th:hover img.default {
+      display: none; }
+    .schedule-table tr th:hover img.selected {
+      display: inline-block; }
+    .schedule-table tr th:hover h2 {
+      color: #4699d3; }

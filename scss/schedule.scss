@@ -1,0 +1,42 @@
+.schedule-table {
+    display: table;
+    margin: 16px auto 0;
+
+    tr {
+        th {
+            display: block;
+            .schedule-time {
+                color: #fff;
+                display: inline-block;
+                font-family: Hermit, sans-serif;
+                font-size: 36px;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                img.default {
+                    display: none;
+                }
+
+                img.selected {
+                    display: inline-block;
+                }
+
+                h2 {
+                    color: #4699d3;
+                }
+            }
+        }
+    }
+}
+
+
+
+.schedule-drop {
+
+}
+.schedule-time {
+}
+.schedule-event {
+	
+}
