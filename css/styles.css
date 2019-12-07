@@ -65,13 +65,6 @@ body {
   transform: translate(-50%, -50%);
   width: 760px; }
 
-.pg-container {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 760px; }
-
 .hidden {
   display: none; }
 
@@ -152,20 +145,60 @@ p {
   .items li a h2 {
     font-size: 28px; } }
 
-.schedule-table {
-  display: table;
-  margin: 16px auto 0; }
-  .schedule-table tr th {
-    display: block; }
-    .schedule-table tr th .schedule-time {
+.schedule-items {
+  display: block;
+  list-style-type: none;
+  margin: auto; }
+  .schedule-items li {
+    width: 258px;
+    margin: 0 auto;
+    margin-top: 10px; }
+    .schedule-items li img {
+      display: inline-block;
+      height: 32px;
+      margin-right: 10px;
+      vertical-align: middle; }
+    .schedule-items li img.selected {
+      display: none; }
+    .schedule-items li h2 {
       color: #fff;
       display: inline-block;
       font-family: Hermit, sans-serif;
       font-size: 36px;
       vertical-align: middle; }
-    .schedule-table tr th:hover img.default {
+    .schedule-items li:hover img.default {
       display: none; }
-    .schedule-table tr th:hover img.selected {
+    .schedule-items li:hover img.selected {
       display: inline-block; }
-    .schedule-table tr th:hover h2 {
+    .schedule-items li:hover h2 {
       color: #4699d3; }
+
+.schedule-table {
+  margin: 0 auto;
+  display: table; }
+  .schedule-table tr td {
+    line-height: 18px;
+    text-align: left;
+    font-family: Hermit, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px; }
+    .schedule-table tr td.schedule-time {
+      color: #fff600; }
+      .schedule-table tr td.schedule-time a {
+        margin-right: 30px; }
+    .schedule-table tr td:hover img.default {
+      display: none; }
+    .schedule-table tr td:hover img.selected {
+      display: inline-block; }
+    .schedule-table tr td:hover h2 {
+      color: #4699d3; }
+
+#schedule {
+  top: 5%;
+  transform: translateX(-50%); }
+
+.schedule-date {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 17px; }

@@ -13,7 +13,7 @@
 <body>
     <div class="grid-bg">
     </div>   
-    <div style="overflow-x: hidden; overflow-y: hidden;">
+    <div style="overflow-x: hidden; overflow-y: visible;">
         <a id="menu-button" href="#home">menu</a>
         <div id="home" class="container">
             <div class="logo">
@@ -62,12 +62,12 @@
         <div id="about" class="container hidden">
             <p>hello</p>
         </div>
-        <div id="schedule" class="pg-container hidden">
+        <div id="schedule" class="container hidden">
             <p class="page-title">
                 schedule
             </p>
             <br>
-            <ul class="items">
+            <ul class="schedule-items">
                 <li>
                     <a href="#about">
                         <img class="default" src="assets/SVG/menu_triangle.svg" />
@@ -75,15 +75,24 @@
                         <h2>learnathon</h2>
                     </a>
                     <div class="schedule-drop">
-                        <table class="schedule-table">
-                            <tr class="schedule-row">
-                                <th><a>8:30</a></th>
-                                <th class="schedule-event">check-in and breakfast</th>
-                            </tr>
-                        </table>
                     </div>
                 </li>
+                <p class="schedule-date">date: saturday, february 8th</p>
+                <table class="schedule-table">
+                    <tr>
+                        <td class="schedule-time"><a>8:30 am</a></td>
+                        <td>check-in and breakfast</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time"><a>9:30 am</a></td>
+                        <td>opening ceremony</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time"><a>10:30 am</a></td>
+                        <td>workshop #1</td>
+                    </tr>
 
+                </table>
                 <li>
                     <a href="#about">
                         <img class="default" src="assets/SVG/menu_triangle.svg" />
@@ -91,6 +100,22 @@
                         <h2>hackathon</h2>
                     </a>
                 </li>
+                <p class="schedule-date">date: sunday, february 9th</p>
+                <table class="schedule-table">
+                    <tr>
+                        <td class="schedule-time"><a>8:30 am</a></td>
+                        <td>check-in and breakfast</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time"><a>9:30 am</a></td>
+                        <td>opening ceremony</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time"><a>10:30 am</a></td>
+                        <td>workshop #1</td>
+                    </tr>
+
+                </table>
             </ul>
         </div>
     </div>
