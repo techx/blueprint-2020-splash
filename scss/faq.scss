@@ -1,0 +1,19 @@
+.question {
+    cursor: pointer;
+    position: relative;
+    font-family: Hermit, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    padding-bottom: 1pt;
+}
+
+.answer{
+    color: #fff;
+    font-family: Hermit, sans-serif;
+    font-size: 15px;
+    letter-spacing: .05em;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    padding-left: 1.1em;
+}
