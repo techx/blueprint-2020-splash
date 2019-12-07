@@ -128,4 +128,6 @@ p {
     height: 24px;
     margin-right: 12px; }
   .items li a h2 {
-    font-size: 28px; } }
+    font-size: 28px; }
+  #play-button {
+    display: none; } }
