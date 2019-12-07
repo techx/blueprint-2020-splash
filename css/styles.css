@@ -129,3 +129,14 @@ p {
     margin-right: 12px; }
   .items li a h2 {
     font-size: 28px; } }
+
+#faq li:before {
+  content: "\003E";
+  display: inline;
+  position: absolute;
+  color: #fff; }
+
+#faq .items p {
+  display: inline;
+  vertical-align: middle;
+  margin-left: 15 px; }

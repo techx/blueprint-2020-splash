@@ -1,0 +1,22 @@
+#faq {
+    // .faq-list { 
+    //     list-style: none; 
+    //     list-style-type: none;
+    // }
+
+    li:before {
+        content: "\003E";
+        display: inline;
+        position: absolute;
+        color: #fff;
+        // // transform: rotate(45deg);
+    }
+
+    .items {
+        p {
+            display: inline;  
+            vertical-align: middle;
+            margin-left: 15 px;
+        }
+    }
+}
