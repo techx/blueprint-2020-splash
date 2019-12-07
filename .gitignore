@@ -1,5 +1,9 @@
 # node
-node_modules
+node_modules/
+
+# sass
+.sass-cache
+*.css.map
 
 # misc
 .DS_Store
