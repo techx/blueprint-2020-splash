@@ -1,5 +1,5 @@
 /** VARIABLES **/
-
+console.log("hi")
 // CONSTANTS
 let gameWidth = 0
 let gameHeight = 0

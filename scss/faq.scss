@@ -1,22 +1,24 @@
-#faq {
-    // .faq-list { 
-    //     list-style: none; 
-    //     list-style-type: none;
-    // }
+.question {
+    cursor: pointer;
+    position: relative;
+    font-family: Hermit, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    padding-bottom: 1pt;
+}
 
-    li:before {
-        content: "\003E";
-        display: inline;
-        position: absolute;
-        color: #fff;
-        // // transform: rotate(45deg);
-    }
+.question span {
+    display: inline-block;
+    transition: transform 0.2s ease-out;
+}
 
-    .items {
-        p {
-            display: inline;  
-            vertical-align: middle;
-            margin-left: 15 px;
-        }
-    }
+.answer {
+    color: #fff;
+    font-family: Hermit, sans-serif;
+    font-size: 15px;
+    letter-spacing: .05em;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    padding-left: 1.1em;
 }

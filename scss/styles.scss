@@ -3,11 +3,13 @@
 // import base@
 @import "./_fonts.scss";
 @import "./_reset.scss";
+@import "./_colors.scss";
 
 // import rules
 @import "./default.scss";
 
 @import "./about.scss";
 @import "./home.scss";
+@import "./schedule.scss";
 @import "./register.scss";
 @import "./faq.scss";

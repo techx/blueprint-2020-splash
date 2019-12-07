@@ -1,0 +1,74 @@
+.schedule-items {
+    display: block;
+    list-style-type: none;
+    margin: auto;
+
+    .question {
+    	width: 280px;
+    	margin: 0 auto;
+    	margin-top: 10px;
+
+        img {
+            display: inline-block;
+            height: 32px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        h2 {
+            color: #fff;
+            display: inline-block;
+            font-family: Hermit, sans-serif;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            h2 {
+                color: #4699d3;
+            }
+        }
+       
+    }
+}
+
+    
+.schedule-table {
+    margin: 0 auto;
+    display: table;
+
+    tr {
+        td {
+        	line-height: 18px;
+            text-align: left;
+        	font-family: Hermit, sans-serif;
+            font-size: 15px;
+            color: #fff;
+			padding: 5px;
+            &.schedule-time {
+            	color: $main_yellow;
+				a {
+					margin-right: 30px;
+				}
+            }
+            &:hover {
+                h2 {
+                    color: #4699d3;
+                }
+            }
+        }
+    }
+}
+
+#schedule {
+	top: 5%;
+    transform: translateX(-50%);
+}
+
+
+.schedule-date {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 17px;
+
+}
