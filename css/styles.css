@@ -46,7 +46,17 @@ a {
     text-decoration: none; }
 
 body {
-  background: #222; }
+  background-color: #23233f;
+  margin: 0; }
+
+.grid-bg {
+  background-image: url("../assets/SVG/bpbkg2-01.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh; }
 
 .container {
   position: absolute;
@@ -57,6 +67,20 @@ body {
 
 .hidden {
   display: none; }
+
+#menu-button {
+  color: #fff;
+  font-family: Hermit, sans-serif;
+  font-size: 24px;
+  position: absolute;
+  top: 16px;
+  left: 16px; }
+  #menu-button:hover {
+    color: #4699d3; }
+
+@media only screen and (max-width: 760px) {
+  .container {
+    width: 90%; } }
 
 .logo {
   display: block;
@@ -105,6 +129,7 @@ p {
     .items li a:hover h2 {
       color: #4699d3; }
 
+<<<<<<< HEAD
 #about {
   top: 20%; }
 
@@ -120,3 +145,17 @@ p {
   font-family: Hermit, sans-serif;
   margin-top: 12px;
   text-align: center; }
+=======
+@media only screen and (max-width: 760px) {
+  .logo {
+    width: 80vw; }
+    .logo h3 {
+      font-size: 4vw; }
+  .items li a img {
+    height: 24px;
+    margin-right: 12px; }
+  .items li a h2 {
+    font-size: 28px; }
+  #play-button {
+    display: none; } }
+>>>>>>> 268de1924867159d2c342591c171b2bdf4f4dd25
