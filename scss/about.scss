@@ -1,0 +1,64 @@
+#about {
+    top: 20%;
+}
+
+h1 {
+    color: #4699D3;
+    font-family: Bitwise, sans-serif;
+    font-size: 80px;
+    position: relative;
+    //top: 0px;
+    text-align: center;
+}
+
+p {
+    color: #fff;
+    font-family: Hermit, sans-serif;
+    margin-top: 12px;
+    text-align: center;
+}
+
+// .items {
+//     display: table;
+//     list-style-type: none;
+//     margin: 16px auto 0;
+
+//     li {
+//         a {
+//             display: block;
+
+//             img {
+//                 display: inline-block;
+//                 height: 32px;
+//                 margin-right: 16px;
+//                 vertical-align: middle;
+//             }
+
+//             img.selected {
+//                 display: none;
+//             }
+
+//             h2 {
+//                 color: #fff;
+//                 display: inline-block;
+//                 font-family: Hermit, sans-serif;
+//                 font-size: 36px;
+//                 vertical-align: middle;
+//             }
+
+//             &:hover {
+//                 img.default {
+//                     display: none;
+//                 }
+
+//                 img.selected {
+//                     display: inline-block;
+//                 }
+
+//                 h2 {
+//                     color: #4699d3;
+//                 }
+//             }
+//         }
+//     }
+// }
