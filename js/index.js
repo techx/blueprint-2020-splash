@@ -11,7 +11,7 @@ if (isMobile) {
 
 function updatePage() {
 
-  const pages = ["home", "play," "about", "register", "schedule", "faq"];
+  const pages = ["home", "play", "about", "register", "schedule", "faq"];
   const newPageId = window.location.hash.substring(1);
 
   if (!pages.includes(newPageId)) {
@@ -31,6 +31,10 @@ function updatePage() {
   document.getElementById(newPageId).classList.remove("hidden");
 
   const menuButton = document.getElementById("menu-button");
+
+  if (newPageId === "play") {
+    startBrickGame()
+  }
 
   if (newPageId === "home") {
     menuButton.classList.add("hidden");

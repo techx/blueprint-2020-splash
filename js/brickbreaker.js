@@ -1,6 +1,6 @@
 /** VARIABLES **/
 
-// constants
+// CONSTANTS
 let gameWidth = 0
 let gameHeight = 0
 const framesPerSecond = 50
@@ -21,16 +21,21 @@ ballCollisionH = () => { // the y coordinate of the center of the ball that repr
 }
 paddleBottom = () => { return paddleY() + (paddleYR + ballR)}
 
-let logoRect //dom rect object giving bounds of logo
+const vertBlocks = 5
+const horizBlocks = 21
+boxSize = () => { return logoRect.height / vertBlocks } // the dimension of the boxes the logo is cut into
 
-// svg assets
+// SVG ASSETS
 let ballSvg = new Image()
 ballSvg.src = ('../assets/svg/ball.svg')
 
 let paddleSvg = new Image()
 paddleSvg.src = ('../assets/svg/bar.svg')
 
-// game variables
+let logoSvg = new Image()
+logoSvg.src = ('../assets/svg/blueprintlogo.svg')
+
+// GAME VARIABLES
 let canvas, context
 
 let ballX, ballY
@@ -47,8 +52,25 @@ let paddleX
 paddleDrawX = () => { return paddleX - paddleXR() }
 paddleDrawY = () => { return paddleY() - paddleYR }
 
+
+let logoRect //dom rect object giving bounds of logo
+logoTopX = () => {
+	return logoRect.x - ((boxSize() * horizBlocks) - (logoRect.width)) / 2 
+}
+
+let brokenBlocks = []
+let begAnimationTick = 0
+let tickSpeed = 2
+
 /** WINDOW FUNCTIONS **/
-window.onload = function() {
+function startBrickGame() {
+	for (var i = 0; i < vertBlocks; i++) {
+		let row = []
+		for (var j = 0; j < horizBlocks; j++) {  row.push(false) }
+		brokenBlocks.push(row)
+	}
+
+		Array(5).fill(Array(21).fill(false))
 	canvas = document.getElementById('brickerbreaker-canvas')
 	context = canvas.getContext('2d')
 
@@ -56,7 +78,7 @@ window.onload = function() {
 	resetGame()
 
   	setInterval(gameTick, 1000/framesPerSecond)
-  	canvas.addEventListener('mousemove', updateMousePos);
+  	canvas.addEventListener('mousemove', updateMousePos)
 }
 
 window.onresize = function(event) {
@@ -78,6 +100,10 @@ function fixCanvasDim() {
 }
 
 function gameTick() {
+	if (begAnimationTick <= (vertBlocks * horizBlocks) * tickSpeed) {
+		begAnimationTick++
+	}
+
 	positionUpdate()
 	drawScene()
 }
@@ -107,6 +133,7 @@ function updateBall() {
 	// check for collision
 	updateBounds()
 	updatePaddleCollision()
+	checkLogoCollision()
 }
 
 function updateBounds() {
@@ -135,9 +162,30 @@ function updatePaddleCollision() {
 	}
 }
 
+function checkLogoCollision() {
+	// check whether we are inside the logo box
+	if (checkInLogoBox()) {
+		ballVy = -ballVy
+	}
+}
+
+function checkLogoCollision() {
+	const boxHeight = boxSize() * vertBlocks
+	const boxWidth = boxSize() * horizBlocks
+	console.log(ballY, logoRect.y)
+	const yInBox = ballY + ballR > logoRect.y && ballY - ballR < logoRect.y + boxHeight
+	const xInBox = ballX + ballR > logoTopX() && ballY - ballR < logoTopX() + boxWidth
+
+	if (yInBox && xInBox) {
+		ballVy = -ballVy
+	}
+
+	return yInBox && xInBox
+}
+
 function resetGame() {
 	ballX = gameWidth/2
-	ballY = 0 //ballCollisionH() - ballStartDeltaH
+	ballY = ballCollisionH() - ballStartDeltaH
 
 	paddleX = gameWidth/2
 
@@ -148,9 +196,24 @@ function resetGame() {
 /** DRAWING **/
 function drawScene() {
 	context.clearRect(0, 0, canvas.width, canvas.height)
+	drawLogo()
+
+	//drawHighlightSquare()
+	if (begAnimationTick < (vertBlocks * horizBlocks) * tickSpeed) {
+		const thisRow = Math.floor(Math.floor(begAnimationTick / tickSpeed) / horizBlocks)
+		const thisCol = Math.floor(begAnimationTick / tickSpeed) % horizBlocks
+		//drawHighlightSquare(thisRow, thisCol)
+	}
 
 	drawPaddle()
 	drawBall()
+}
+
+function drawHighlightSquare(row, col) {
+	topX = logoTopX() + boxSize() * col
+	topY = logoRect.y + boxSize() * row
+	context.fillStyle = "#ffffff50"
+	context.fillRect(topX, topY, boxSize(), boxSize())
 }
 
 function drawPaddle() {
@@ -161,4 +224,9 @@ function drawBall() {
 	context.drawImage(paddleSvg, paddleDrawX(), paddleDrawY(), paddleXR() * 2, paddleYR * 2)
 }
 
+function drawLogo() {
+	// context.fillStyle = "black"
+	// context.fillRect(logoTopX(), logoRect.y, boxSize() * horizBlocks, logoRect.height)
+	context.drawImage(logoSvg, logoRect.x, logoRect.y, logoRect.width, logoRect.height)
+}
 
