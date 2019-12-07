@@ -25,9 +25,9 @@ function reload(done) {
 function style() {
   return gulp.src(['scss/styles.scss'])
     .pipe(sass())
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
+    // .pipe(header(banner, {
+    //   pkg: pkg
+    // }))
     .pipe(gulp.dest('css'))
     .pipe(browserSync.reload({
       stream: true
