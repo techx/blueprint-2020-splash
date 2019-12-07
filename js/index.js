@@ -10,7 +10,8 @@ if (isMobile) {
 }
 
 function updatePage() {
-  const pages = ["home", "about", "schedule", "faq"];
+
+  const pages = ["home", "about", "register", "schedule", "faq"];
   const newPageId = window.location.hash.substring(1);
 
   if (!pages.includes(newPageId)) {
@@ -68,12 +69,72 @@ function generateSquares() {
 
 window.onhashchange = updatePage;
 
-window.onload = function() {
-  if (window.location.hash.length !== 0) {
-    updatePage();
-  } else {
-    document.getElementById("menu-button").classList.add("hidden");
+function parseCookies() {
+  const cookiesList = document.cookie.split("; ");
+  let cookies = {};
+
+  for (let i = 0; i < cookiesList.length; i++) {
+    const cookieParts = cookiesList[i].split("=");
+    cookies[cookieParts[0]] = cookieParts[1];
   }
 
+  return cookies;
+}
+
+function setAnimationCookie() {
+  const currentTime = new Date().getTime();
+  const eightHours = 1000 * 60 * 60 * 8;
+  const expireDate = new Date(currentTime + eightHours);
+
+  document.cookie = "animation=" + new Date() + "; expires=" + expireDate + "; path=/";
+}
+
+function shouldAnimate() {
+  const cookies = parseCookies();
+
+  if ("animation" in cookies) {
+    const lastAnimationTime = new Date(cookies["animation"]).getTime();
+    const timeSinceLastAnimation = new Date().getTime() - lastAnimationTime;
+    const eightHours = 1000 * 60 * 60 * 8;
+
+    return timeSinceLastAnimation >= eightHours;
+  }
+
+  return true;
+}
+
+if (!shouldAnimate()) {
+  const video = document.getElementById("loading");
+  video.classList.add("hidden");
+}
+
+document.onkeydown = shouldAnimate() ? function(e) {
+  const video = document.getElementById("loading");
+
+  // Spacebar
+  if (e.keyCode === 32) {
+    video.style.animationDuration = "0.5s";
+    video.classList.add("fade-out");
+
+    setTimeout(function() {
+      video.classList.add("hidden");
+    }, 500);
+  }
+} : null;
+
+if (window.location.hash.length !== 0) {
+  updatePage();
+} else {
+  document.getElementById("menu-button").classList.add("hidden");
+}
+
+window.onload = function() {
   generateSquares();
+
+  // Animation
+  if (!shouldAnimate()) {
+    return;
+  }
+
+  setAnimationCookie();
 };
