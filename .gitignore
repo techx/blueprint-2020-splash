@@ -7,7 +7,6 @@ node_modules/
 # sass
 .sass-cache
 *.css.map
-css
 
 # misc
 .DS_Store

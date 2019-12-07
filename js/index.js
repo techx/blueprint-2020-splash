@@ -141,36 +141,21 @@ window.onload = function() {
 
 // FAQ
 let coll = document.getElementsByClassName("question");
-for (let i=0; i<coll.length; i++) {
+for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function(event) {
-    let carrot = '&gt;';
-    let text = this.innerHTML;
-    if (text.indexOf(carrot) >= 0){
-      let indexCarrot = text.indexOf(carrot);
-      let newText = text.substring(0,indexCarrot) + 'v' + text.substring(indexCarrot+4,text.length);
-      this.innerHTML = newText;
+    let span = this.childNodes[1];
+    if (span.style.transform.length === 0) {
+      span.style.transform = "rotate(90deg)";
     } else {
-      let indexCarrot = text.indexOf('v');
-      let newText = text.substring(0,indexCarrot) + '>' + text.substring(indexCarrot+1,text.length);
-      this.innerHTML = newText;
+      span.style.transform = "";
     }
 
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
+    let content = this.nextElementSibling;
+    console.log(content)
+    if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     }
-    // Lock scroll for the duration of animation
-    previousScrollTime = event.timeStamp;
-    timeThreshold = 500;
-    setTimeout(function(){
-      let element = document.getElementById('faq-questions');
-      if (element.scrollHeight > element.offsetHeight){
-        validTransition = false;
-      } else {
-        validTransition = true;
-      }
-    },250);
   });
 }
