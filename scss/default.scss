@@ -29,22 +29,22 @@ body {
 
         &.yellow {
             background: #fff600;
-            opacity: 0.6;
+            opacity: 0.3;
         }
 
         &.blue {
             background: #5eebff;
-            opacity: 0.68;
+            opacity: 0.38;
         }
 
         &.red {
             background: #f92e54;
-            opacity: 0.41;
+            opacity: 0.21;
         }
 
         &.purple {
             background: #9600c0;
-            opacity: 0.6;
+            opacity: 0.3;
         }
     }
 }
@@ -56,6 +56,25 @@ body {
     transform: translate(-50%, -50%);
     width: 760px;
     transition: opacity .25s ease;
+    height: 70vh;
+    // overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+#play {
+    top: 50%;
+    height: 100%;
+    width: 100%;
 }
 
 .hidden {
@@ -80,7 +99,14 @@ body {
 	color: $light_accent;
 	font-size: 5em;
 	font-family: Bitwise;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
 }
+
+
+
 
 @keyframes float {
     from {
@@ -101,5 +127,6 @@ body {
         width: 90%;
     }
 }
+
 
 

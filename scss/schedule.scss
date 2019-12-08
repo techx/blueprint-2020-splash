@@ -2,21 +2,20 @@
     display: block;
     list-style-type: none;
     margin: auto;
-
+    
     .question {
+        color: #fff;
+        cursor: pointer;
     	width: 280px;
     	margin: 0 auto;
     	margin-top: 10px;
 
-        img {
-            display: inline-block;
-            height: 32px;
-            margin-right: 10px;
-            vertical-align: middle;
+        span {
+            margin-right: 12px;
+            font-size: 24px;
         }
 
         h2 {
-            color: #fff;
             display: inline-block;
             font-family: Hermit, sans-serif;
             font-size: 36px;
@@ -24,11 +23,18 @@
         }
 
         &:hover {
-            h2 {
-                color: #4699d3;
+            color: #4699d3;
+        }
+
+        &.active {
+            &.learnathon {
+                color: #fff600;
+            }
+
+            &.hackathon {
+                color: #ec0e6a;
             }
         }
-       
     }
 }
 
@@ -36,6 +42,7 @@
 .schedule-table {
     margin: 0 auto;
     display: table;
+    padding-left: 80px;
 
     tr {
         td {
@@ -45,12 +52,17 @@
             font-size: 15px;
             color: #fff;
 			padding: 5px;
+            width: 320px;
+
             &.schedule-time {
             	color: $main_yellow;
+                width: 120px;
+
 				a {
 					margin-right: 30px;
 				}
             }
+
             &:hover {
                 h2 {
                     color: #4699d3;
@@ -61,7 +73,7 @@
 }
 
 #schedule {
-	top: 5%;
+	top: 10%;
     transform: translateX(-50%);
 }
 
@@ -70,5 +82,5 @@
 	margin-top: 10px;
 	margin-bottom: 5px;
 	font-size: 17px;
-
+    font-weight: bold;
 }

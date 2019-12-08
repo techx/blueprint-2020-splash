@@ -79,8 +79,8 @@ function generateSquares() {
       square.classList.add("yellow");
     }
 
-    // Random position between 5-95% vertically and horizontally
-    square.style.top = (Math.random() * 90 + 5) + "%";
+    // Random position between 5-80% vertically, 5-95% horizontally
+    square.style.top = (Math.random() * 75 + 5) + "%";
     square.style.left = (Math.random() * 90 + 5) + "%";
 
     squares.appendChild(square);
@@ -133,8 +133,7 @@ document.onkeydown = shouldAnimate() ? function(e) {
 
   // Spacebar
   if (e.keyCode === 32) {
-    video.style.animationDuration = "0.5s";
-    video.classList.add("fade-out");
+    video.style.opacity = 0;
 
     setTimeout(function() {
       video.classList.add("hidden");
@@ -175,6 +174,12 @@ window.onload = function() {
 let coll = document.getElementsByClassName("question");
 for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function(event) {
+    if (this.classList.contains("active")) {
+      this.classList.remove("active");
+    } else {
+      this.classList.add("active");
+    }
+
     let span = this.childNodes[1];
     if (span.style.transform.length === 0) {
       span.style.transform = "rotate(90deg)";

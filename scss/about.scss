@@ -1,5 +1,24 @@
 #about {
-    top: 20%;
+    top: 10%;
+    transform: translateX(-50%);
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 100px;
+        text-align: left;
+      }
+      
+      li {
+        padding-left: 1em;
+        text-indent: -1em;
+    
+      }
+      
+      li:before {
+        content: ">";
+        padding-right: 10px;
+    }
 }
 
 h1 {
@@ -19,4 +38,51 @@ p {
     // position: relative;
     text-align: center;
     width: 65%;
+}
+
+.about-items {
+    display: block;
+    list-style-type: none;
+    margin: auto;
+
+    .question {
+        cursor: pointer;
+        color: #fff;
+    	width: 280px;
+    	margin: 0 auto;
+        margin-top: 10px;
+        display: block;
+
+        span {
+            font-size: 24px;
+            margin-right: 12px;
+        }
+
+        h2 {
+            display: inline-block;
+            font-family: Hermit, sans-serif;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            color: #4699d3;
+        }
+
+        &.active {
+            &.learnathon {
+                color: #FFF600;
+            }
+
+            &.hackathon {
+                color: #EC0E6A;
+            }
+        }
+    }
+}
+
+.about-date {
+	margin-top: 10px;
+	margin-bottom: 5px;
+    font-size: 20px;
 }

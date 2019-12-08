@@ -1,15 +1,13 @@
-video {
-    position: absolute;
+#loading {
+    position: fixed;
     min-width: 100vw;
     min-height: 100vh;
     top: 50%;
     left: 50%;
+    z-index: 1000;
+    opacity: 1;
     transform: translate(-50%, -50%);
-    z-index: 10;
-
-    &.fade-out {
-        animation-name: fade-out;
-    }
+    transition: opacity 0.25s ease;
 }
 
 .logo {
@@ -83,26 +81,6 @@ p {
         }
     }
 }
-#play {
-    width: 100%;
-    height:100%;
-}
-
-#brickerbreaker-canvas {
-    width: 100%;
-    height: 100%;
-    z-index: -99;
-}
-
-@keyframes fade-out {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
 
 @media only screen and (max-width: 760px) {
     .logo {
@@ -126,9 +104,5 @@ p {
                 }
             }
         }
-    }
-
-    #play-button {
-        display: none;
     }
 }

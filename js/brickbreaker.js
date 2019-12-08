@@ -1,5 +1,5 @@
 /** VARIABLES **/
-console.log("hi")
+
 // CONSTANTS
 let gameWidth = 0
 let gameHeight = 0
@@ -63,7 +63,7 @@ logoTopX = () => {
 let brokenBlocks = []
 
 let animationTick = 0
-let animationRepeat = 3
+let animationRepeat = 4
 let animationInterval = 17
 let animationOn = 6
 
@@ -120,6 +120,12 @@ function resetGame() {
 }
 
 window.onresize = function(event) {
+    if (window.location.hash.substring(1) !== "play") {
+        return
+    }
+}
+
+window.onresize = function(event) {
 	fixCanvasDim()
 }
 
@@ -130,9 +136,9 @@ function fixCanvasDim() {
 	canvas.height = gameHeight
 
 	const homeElem = document.getElementById('home')
-	homeElem.style.display = 'block'
+    homeElem.classList.remove("hidden");
 	logoRect = document.getElementById('main-logo').getBoundingClientRect()
-	homeElem.style.display = 'none'
+    homeElem.classList.add("hidden");
 }
 
 function gameTick() {
@@ -303,7 +309,7 @@ function drawScene() {
 
 	context.clearRect(logoTopX(), logoRect.y + boxSize() * (vertBlocks), boxSize() * horizBlocks, 10)
 
-	if (animationTick % animationInterval <= animationOn) {
+	if (animationTick % animationInterval <= animationOn && animationTick < animationRepeat * animationInterval) {
 		drawGrid()
 	}
 
