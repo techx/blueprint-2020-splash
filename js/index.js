@@ -11,32 +11,52 @@ if (isMobile) {
 
 function updatePage() {
 
-  const pages = ["home", "about", "register", "schedule", "faq"];
+  const pages = ["home", "play", "about", "register", "schedule", "faq"];
   const newPageId = window.location.hash.substring(1);
 
   if (!pages.includes(newPageId)) {
     return;
   }
-
+  var currentPage;
   for (let i = 0; i < pages.length; i++) {
     const page = document.getElementById(pages[i]);
 
     if (page === null) {
       continue;
     }
-
-    page.classList.add("hidden");
+    if (!page.classList.contains("hidden")){
+      currentPage = page
+    }
   }
-
+  
+  currentPage.style.opacity = 0;
+  setTimeout(function(){
+    currentPage.classList.add("hidden");
+    var newPage = document.getElementById(newPageId)
+    newPage.classList.remove("hidden");
+    newPage.style.opacity = 1;
+    const menuButton = document.getElementById("menu-button");
+    if (newPageId === "home") {
+      menuButton.classList.add("hidden");
+    } else {
+      menuButton.classList.remove("hidden");
+    }
+  }, 150)
+  
   document.getElementById(newPageId).classList.remove("hidden");
 
   const menuButton = document.getElementById("menu-button");
+
+  if (newPageId === "play") {
+    startBrickGame()
+  }
 
   if (newPageId === "home") {
     menuButton.classList.add("hidden");
   } else {
     menuButton.classList.remove("hidden");
   }
+
 }
 
 function generateSquares() {
@@ -122,6 +142,18 @@ document.onkeydown = shouldAnimate() ? function(e) {
   }
 } : null;
 
+var containers = document.getElementsByClassName("container")
+for(let i=0; i < containers.length; i++){
+    containers[i].style.opacity = 0;
+}
+
+var currentPageHash = window.location.hash.substring(1)
+if (currentPageHash.length === 0){
+  currentPageHash = 'home'
+}
+document.getElementById(currentPageHash).style.opacity = 1;
+
+
 if (window.location.hash.length !== 0) {
   updatePage();
 } else {
@@ -164,3 +196,4 @@ for (let i = 0; i < coll.length; i++) {
     }
   });
 }
+

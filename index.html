@@ -1,5 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+                   /~@@~\,
+ _______ . _\_\___/\ __ /\___|_|_ . _______
+/ ____  |=|      \  <_+>  /      |=|  ____ \
+~|    |\|=|======\\______//======|=|/|    |~
+ |_   |    \      |      |      /    |    |
+  \==-|     \     |  BP  |     /     |----|~~)
+  |   |      |    |      |    |      |____/~/
+  |   |       \____\____/____/      /    / /
+  |   |         {----------}       /____/ /
+  |___|        /~~~~~~~~~~~~\     |_/~|_|/
+   \_/        [/~~~~~||~~~~~\]     /__|\
+   | |         |    ||||    |     (/|[[\)
+   [_]        |     |  |     |
+              |_____|  |_____|
+              (_____)  (_____)
+              |     |  |     |
+              |     |  |     |
+              |/~~~\|  |/~~~\|
+              /|___|\  /|___|\
+             <_______><_______>
+-->
 <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,13 +41,13 @@
         <a id="menu-button" href="#home">menu</a>
         <div id="home" class="container">
             <div class="logo">
-                <img class="logo" src="assets/bp-logo.png" />
-                <h3>february 8-9, 2020</h3>
+                <img class="logo" id="main-logo" src="assets/SVG/blueprintlogo.svg" />
+                <h3>february 8-9, 2020</h1>
             </div>
             <p>Blueprint is a weekend-long learnathon and hackathon for local high school students held on MIT's campus. Learn from MIT students, make new friends, and make something cool!</p>
             <ul class="items">
                 <li>
-                    <a href="#" id="play-button">
+                    <a href="#play" id="play-button">
                         <img class="default" src="assets/SVG/menu_triangle.svg" />
                         <img class="selected" src="assets/SVG/menu_select.svg" />
                         <h2>play</h2>
@@ -67,9 +89,7 @@
             <p> Registration will open soon. <br> Sign up <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6txpG1fgB0ewYJvVPm3WyJEJlwP4x2UK81wNizSVIDCjbuA/viewform" target="_blank"><font color="24E5FF">here</font></a> to get notified when registration goes live!</p>
         </div>                     
         <div id="faq" class="container hidden">
-            <p class="page-title">
-                faq
-            </p>
+            <p class="page-title">faq</p>
             <br>
             <div class="question">
                 <span>&gt;</span>
@@ -226,6 +246,10 @@
             </div>
         </div>
     </div>
+    <div id="play" class="container hidden">
+        <canvas id="brickerbreaker-canvas"></canvas>
+    </div>
+    <script type="text/javascript" src="js/brickbreaker.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
