@@ -29,22 +29,22 @@ body {
 
         &.yellow {
             background: #fff600;
-            opacity: 0.6;
+            opacity: 0.3;
         }
 
         &.blue {
             background: #5eebff;
-            opacity: 0.68;
+            opacity: 0.38;
         }
 
         &.red {
             background: #f92e54;
-            opacity: 0.41;
+            opacity: 0.21;
         }
 
         &.purple {
             background: #9600c0;
-            opacity: 0.6;
+            opacity: 0.3;
         }
     }
 }
@@ -97,6 +97,10 @@ body {
 	color: $light_accent;
 	font-size: 5em;
 	font-family: Bitwise;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
 }
 
 @keyframes float {
@@ -116,6 +120,12 @@ body {
 @media only screen and (max-width: 760px) {
     .container {
         width: 90%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .container {
+        width: 80%;
     }
 }
 
