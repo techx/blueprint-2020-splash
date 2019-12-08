@@ -1,16 +1,3 @@
-.question {
-    cursor: pointer;
-    position: relative;
-    font-family: Hermit, sans-serif;
-    color: #fff;
-    font-size: 20px;
-    padding-bottom: 1pt;
-    padding-top: 8px;
-
-    &:hover {
-        color: $main_yellow;
-    }
-}
 
 .question span {
     display: inline-block;
@@ -29,10 +16,34 @@
 }
 
 #faq {
-    top: 5%;
+    top: 10%;
     transform: translateX(-50%);
-
-    .page-title {
-    margin-bottom: 25px;
+    .question {
+        cursor: pointer;
+        position: relative;
+        font-family: Hermit, sans-serif;
+        color: #fff;
+        font-size: 20px;
+        padding-bottom: 1pt;
+        padding-top: 8px;
+        font-weight: bold;
+        &:hover {
+            color: $main_yellow;
+        }
+    }
+    @media only screen and (max-width: 400px){
+    .question {
+        font-size: 15px;
+    }
+    .answer {
+        font-size: 10px;
     }
 }
+}
+
+.spacer {
+    width: 100%;
+    height: 30vh;
+    display: block;
+}
+

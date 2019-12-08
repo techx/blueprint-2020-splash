@@ -2,7 +2,7 @@
     display: block;
     list-style-type: none;
     margin: auto;
-
+    
     .question {
     	width: 280px;
     	margin: 0 auto;
@@ -60,7 +60,7 @@
 }
 
 #schedule {
-	top: 5%;
+	top: 10%;
     transform: translateX(-50%);
 }
 
@@ -69,4 +69,5 @@
 	margin-top: 10px;
 	margin-bottom: 5px;
 	font-size: 17px;
+    font-weight: bold;
 }
