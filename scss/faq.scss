@@ -12,7 +12,12 @@
     }
 }
 
-.answer{
+.question span {
+    display: inline-block;
+    transition: transform 0.2s ease-out;
+}
+
+.answer {
     color: #fff;
     font-family: Hermit, sans-serif;
     font-size: 15px;

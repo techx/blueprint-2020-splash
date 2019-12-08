@@ -1,9 +1,10 @@
 .schedule-items {
-	display: block;
+    display: block;
     list-style-type: none;
     margin: auto;
-    li {
-    	width: 258px;
+
+    .question {
+    	width: 280px;
     	margin: 0 auto;
     	margin-top: 10px;
 
@@ -12,10 +13,6 @@
             height: 32px;
             margin-right: 10px;
             vertical-align: middle;
-        }
-
-        img.selected {
-            display: none;
         }
 
         h2 {
@@ -27,14 +24,6 @@
         }
 
         &:hover {
-            img.default {
-                display: none;
-            }
-
-            img.selected {
-                display: inline-block;
-            }
-
             h2 {
                 color: #4699d3;
             }
@@ -63,14 +52,6 @@
 				}
             }
             &:hover {
-                img.default {
-                    display: none;
-                }
-
-                img.selected {
-                    display: inline-block;
-                }
-
                 h2 {
                     color: #4699d3;
                 }

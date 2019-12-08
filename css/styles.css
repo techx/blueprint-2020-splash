@@ -100,7 +100,8 @@ body {
   font-size: 24px;
   position: absolute;
   top: 16px;
-  left: 16px; }
+  left: 16px;
+  z-index: 10; }
   #menu-button:hover {
     color: #4699d3; }
 
@@ -197,6 +198,15 @@ p {
     .items li a:hover h2 {
       color: #4699d3; }
 
+#play {
+  width: 100%;
+  height: 100%; }
+
+#brickerbreaker-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: -99; }
+
 @keyframes fade-out {
   from {
     opacity: 1; }
@@ -220,28 +230,22 @@ p {
   display: block;
   list-style-type: none;
   margin: auto; }
-  .schedule-items li {
-    width: 258px;
+  .schedule-items .question {
+    width: 280px;
     margin: 0 auto;
     margin-top: 10px; }
-    .schedule-items li img {
+    .schedule-items .question img {
       display: inline-block;
       height: 32px;
       margin-right: 10px;
       vertical-align: middle; }
-    .schedule-items li img.selected {
-      display: none; }
-    .schedule-items li h2 {
+    .schedule-items .question h2 {
       color: #fff;
       display: inline-block;
       font-family: Hermit, sans-serif;
       font-size: 36px;
       vertical-align: middle; }
-    .schedule-items li:hover img.default {
-      display: none; }
-    .schedule-items li:hover img.selected {
-      display: inline-block; }
-    .schedule-items li:hover h2 {
+    .schedule-items .question:hover h2 {
       color: #4699d3; }
 
 .schedule-table {
@@ -258,10 +262,6 @@ p {
       color: #fff600; }
       .schedule-table tr td.schedule-time a {
         margin-right: 30px; }
-    .schedule-table tr td:hover img.default {
-      display: none; }
-    .schedule-table tr td:hover img.selected {
-      display: inline-block; }
     .schedule-table tr td:hover h2 {
       color: #4699d3; }
 
@@ -301,6 +301,10 @@ p {
   padding-top: 8px; }
   .question:hover {
     color: #fff600; }
+
+.question span {
+  display: inline-block;
+  transition: transform 0.2s ease-out; }
 
 .answer {
   color: #fff;
