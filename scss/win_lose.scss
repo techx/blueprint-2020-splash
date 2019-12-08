@@ -26,7 +26,7 @@
 }
 
 #score {
-    font-family: Hermit, san-serif;
+    font-family: Bitwise, san-serif;
     height: 25vh;
     font-size: 100px;
     color: $main_yellow;
@@ -34,9 +34,21 @@
 }
 
 #blocks-left {
-    font-family: Hermit, san-serif;
+    font-family: Bitwise, san-serif;
     height: 25vh;
     font-size: 100px;
     color: $main_red;
     text-align: center;
+}
+
+#score-box {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.score-sublabel {
+    padding-left: 10px;
+    width: auto;
+    margin: 0;
 }

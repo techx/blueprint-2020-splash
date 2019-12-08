@@ -64,9 +64,9 @@ let brokenBlocks = []
 let totalBroken = []
 
 let animationTick = 0
-let animationRepeat = 4
-let animationInterval = 20
-let animationOn = 10
+let animationRepeat = 3
+let animationInterval = 17
+let animationOn = 7
 
 /** WINDOW FUNCTIONS **/
 function startBrickGame() {
@@ -79,13 +79,14 @@ function startBrickGame() {
 	canvas = document.getElementById('brickerbreaker-canvas')
 	context = canvas.getContext('2d')
 
+	animationTick = 0
+	totalBroken = 0
+
 	fixCanvasDim()
 	resetGame()
 
-	animationTick = 0
-
 	stopGame()
-	
+
   	listener = setInterval(gameTick, 1000/framesPerSecond)
   	canvas.addEventListener('mousemove', updateMousePos)
 }
@@ -97,7 +98,6 @@ function resetBricks() {
 	for (let i = 0; i < vertBlocks; i++) {
 		let row = []
 		for (let j = 0; j < horizBlocks; j++) {  
-			console.log(i, j, (i == 0 && !topIncluded.includes(j)))
 			if ((i == 0 && !topIncluded.includes(j)) || (i == vertBlocks-1 && !bottomIncluded.includes(j))) {
 				row.push(true) 
 				totalBroken++
@@ -120,17 +120,14 @@ function resetGame() {
 
 	ballVx = 0
 	ballVy = 10
-	console.log(brokenBlocks)
 }
 
 window.onresize = function(event) {
     if (window.location.hash.substring(1) !== "play") {
         return
     }
-}
 
-window.onresize = function(event) {
-	fixCanvasDim()
+    fixCanvasDim()
 }
 
 function fixCanvasDim() {
@@ -164,6 +161,26 @@ function updateMousePos(event){
   	paddleX = mouseX
 }
 
+/** WIN/LOSS STATE **/
+function lostGame() {
+	window.location.hash = 'lose'
+	document.getElementById('blocks-left').innerHTML = String((vertBlocks * horizBlocks) - totalBroken).padStart(2, '0')
+	stopGame()
+}
+
+function wonGame() {
+	window.location.hash = 'win'
+	document.getElementById('score').innerHTML = Math.round(((animationTick) / 30) * 10) / 10
+	stopGame()
+}
+
+function stopGame() {
+	if (listener) {
+		clearInterval(listener)
+	}
+}
+
+
 /** GAME UPDATES **/
 function positionUpdate() {
 	updateBall()
@@ -178,20 +195,6 @@ function updateBall() {
 	updateBounds()
 	updatePaddleCollision()
 	updateBoxes() //checkLogoCollision()
-}
-
-function lostGame() {
-	stopGame()
-}
-
-function wonGame() {
-	stopGame()
-}
-
-function stopGame() {
-	if (listener) {
-		clearInterval(listener)
-	}
 }
 
 function updateBounds() {
@@ -258,7 +261,7 @@ function updateBoxes() {
 		}
 	}
 
-	if (totalBroken == vertBlocks * horizBlocks) {
+	if (totalBroken >= vertBlocks * horizBlocks) {
 		wonGame()
 	}
 }

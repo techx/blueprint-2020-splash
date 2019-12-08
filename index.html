@@ -311,30 +311,33 @@
             <div class="spacer"></div>
         </div>
         <div id="win" class="container hidden">
-            <div class="page-title"">congrats!</div>
+            <div class="page-title">congrats!</div>
             <br>
             <div class="schedule-items">
                 <p class="score-label">your time was:</p>
-                <div id="score">hi</div>
-                <a id="win-button" href="#play">play again</p>
-                <a id="win-button" href="#home">menu</p>
+                <div id="score-box">
+                    <div id="score">0.0</div> 
+                    <p class="score-sublabel">seconds</p>
+                </div>
+                <a id="win-button" href="#play">play again</a>
+                <a id="win-button" href="#home">menu</a>
             </div>
         </div>
         <div id="lose" class="container hidden">
-            <div class="page-title">you suck!</div>
+            <div class="page-title">you lost!</div>
             <br>
             <div class="schedule-items">
                 <p class="score-label">blocks left:</p>
-                <div id="blocks-left">hi</div>
-                <a id="win-button" href="#play">play again</p>
-                <a id="win-button" href="#home">menu</p>
+                <div id="blocks-left">00</div>
+                <a id="win-button" href="#play">play again</a>
+                <a id="win-button" href="#home">menu</a>
             </div>
         </div>
-
+        <div id="play" class="container hidden">
+            <canvas id="brickerbreaker-canvas"></canvas>
+        </div>
     </div>
-    <div id="play" class="container hidden">
-        <canvas id="brickerbreaker-canvas"></canvas>
-    </div>
+    
     <script type="text/javascript" src="js/brickbreaker.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
