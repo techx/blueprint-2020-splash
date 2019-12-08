@@ -46,6 +46,8 @@ p {
     margin: auto;
 
     .question {
+        cursor: pointer;
+        color: #fff;
     	width: 280px;
     	margin: 0 auto;
         margin-top: 10px;
@@ -53,6 +55,7 @@ p {
 
         span {
             font-size: 24px;
+            margin-right: 12px;
         }
 
         h2 {
