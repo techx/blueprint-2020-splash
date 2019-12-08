@@ -30,9 +30,8 @@ function updatePage() {
   }
   
   currentPage.style.opacity = 0;
-  currentPage.classList.add("hidden");
-
   setTimeout(function(){
+    currentPage.classList.add("hidden");
     var newPage = document.getElementById(newPageId)
     newPage.classList.remove("hidden");
     newPage.style.opacity = 1;
@@ -42,12 +41,8 @@ function updatePage() {
     } else {
       menuButton.classList.remove("hidden");
     }
-  }, 250)
+  }, 150)
   
-
-<<<<<<< HEAD
-  
-=======
   document.getElementById(newPageId).classList.remove("hidden");
 
   const menuButton = document.getElementById("menu-button");
@@ -61,7 +56,7 @@ function updatePage() {
   } else {
     menuButton.classList.remove("hidden");
   }
->>>>>>> 388fd41f56aa432a4d42d6d9fd003400bbc06605
+
 }
 
 function generateSquares() {
@@ -188,7 +183,6 @@ for (let i = 0; i < coll.length; i++) {
     }
 
     let content = this.nextElementSibling;
-    console.log(content)
     if (content.style.maxHeight) {
       content.style.maxHeight = null;
     } else {
