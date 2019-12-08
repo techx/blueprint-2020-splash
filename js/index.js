@@ -175,6 +175,12 @@ window.onload = function() {
 let coll = document.getElementsByClassName("question");
 for (let i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function(event) {
+    if (this.classList.contains("active")) {
+      this.classList.remove("active");
+    } else {
+      this.classList.add("active");
+    }
+
     let span = this.childNodes[1];
     if (span.style.transform.length === 0) {
       span.style.transform = "rotate(90deg)";

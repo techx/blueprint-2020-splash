@@ -165,8 +165,8 @@ function updatePaddleCollision() {
 }
 
 function updateBoxes() {
-	let blocks = 0
-	const ballCorners = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
+	let blocks = 0;
+	const ballCorners = [[1, 1], [-1, -1], [1, -1], [-1, 1]];
 	brokenBlocks.forEach((row, r_index) => {
 		row.forEach((broken, c_index) => {
 			//check whether block is there

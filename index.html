@@ -1,5 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+                   /~@@~\,
+ _______ . _\_\___/\ __ /\___|_|_ . _______
+/ ____  |=|      \  <_+>  /      |=|  ____ \
+~|    |\|=|======\\______//======|=|/|    |~
+ |_   |    \      |      |      /    |    |
+  \==-|     \     |  BP  |     /     |----|~~)
+  |   |      |    |      |    |      |____/~/
+  |   |       \____\____/____/      /    / /
+  |   |         {----------}       /____/ /
+  |___|        /~~~~~~~~~~~~\     |_/~|_|/
+   \_/        [/~~~~~||~~~~~\]     /__|\
+   | |         |    ||||    |     (/|[[\)
+   [_]        |     |  |     |
+              |_____|  |_____|
+              (_____)  (_____)
+              |     |  |     |
+              |     |  |     |
+              |/~~~\|  |/~~~\|
+              /|___|\  /|___|\
+             <_______><_______>
+-->
 <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -62,8 +84,9 @@
             </ul>
         </div>
         <div id="register" class="container hidden">
-                <h1>register</h1>
-                <p> Registration will open soon. <br> Sign up <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6txpG1fgB0ewYJvVPm3WyJEJlwP4x2UK81wNizSVIDCjbuA/viewform" target="_blank"><font color="24E5FF">here</font></a> to get notified when registration goes live!</p>
+            <h1>register</h1>
+
+            <p> Registration will open soon. <br> Sign up <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6txpG1fgB0ewYJvVPm3WyJEJlwP4x2UK81wNizSVIDCjbuA/viewform" target="_blank"><font color="24E5FF">here</font></a> to get notified when registration goes live!</p>
         </div>                     
         <div id="faq" class="container hidden">
             <p class="page-title">faq</p>
@@ -138,9 +161,38 @@
             <div class="spacer"></div>
         </div>
         <div id="about" class="container hidden">
-                <h1>about</h1>
-                <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint, you'll not only have this project but also the tools to learn more.</p>
-    
+            <h1>about</h1>
+            <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint, you'll not only have this project but also the tools to learn more.</p>
+                <div class="about-items">
+                        <div class="question">
+                            <img class="default" src="assets/SVG/menu_triangle.svg" />
+                            <img class="selected" src="assets/SVG/menu_triangle_yellow.svg" />
+                            <h2 class="learnathon">learnathon</h2>
+                        </div>
+                        <div class="answer">
+                            <p class="about-date">date: saturday, february 8th</p>
+                            <ul>
+                                <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or Arduino</li>
+                                <li>Attend short 'tech talks' on specialized computer science topics</li>
+                                <li>Eager to get started? Check out <a href="https://starthacking.org/" target="_blank"><font color="24E5FF">StartHacking.org</font></a>!</li>
+                                  
+                            </ul>
+                        </div>
+                        <div class="question">
+                            <img class="default" src="assets/SVG/menu_triangle.svg" />
+                            <img class="selected" src="assets/SVG/menu_triangle_red.svg" />
+                            <h2 class="hackathon">hackathon</h2>
+                        </div>
+                        <div class="answer">
+                            <p class="about-date">date: sunday, february 9th</p>
+                            <ul>
+                                <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or Arduino</li>
+                                <li>Attend short 'tech talks' on specialized computer science topics</li>
+                                <li>Eager to get started? Check out <a href="https://starthacking.org/" target="_blank"><font color="24E5FF">StartHacking.org</font></a>!</li>
+                                      
+                            </ul>
+                        </div>
+                </div>
         </div>
         <div id="schedule" class="container hidden">
             <div class="page-title">
@@ -153,7 +205,8 @@
                     <h2>learnathon</h2>
                 </div>
                 <div class="answer">
-                    <p class="schedule-date">date: saturday, february 8th</p>
+                    <p class="schedule-date"><span style="color: #EC0E6A">date:</span> saturday, february 8th</p>
+                    <p class="schedule-date"><span style="color: #EC0E6A">location:</span> MIT Stata Center</p>
                     <table class="schedule-table">
                         <tr>
                             <td class="schedule-time"><a>8:30 am</a></td>
@@ -164,8 +217,40 @@
                             <td>opening ceremony</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time"><a>10:30 am</a></td>
+                            <td class="schedule-time"><a>10:00 am</a></td>
                             <td>workshop #1</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>11:30 am</a></td>
+                            <td>tech talk #1</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>12:00 pm</a></td>
+                            <td>lunch, activities expo</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>1:00 pm</a></td>
+                            <td>workshop #2</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>2:00 pm</a></td>
+                            <td>workshop #3</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>3:00 pm</a></td>
+                            <td>tech talk #2</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>3:30 pm</a></td>
+                            <td>workshop #4</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>4:30 pm</a></td>
+                            <td>closing ceremony</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>5:00 pm</a></td>
+                            <td>end of learnathon</td>
                         </tr>
 
                     </table>
@@ -175,25 +260,58 @@
                     <h2>hackathon</h2>
                 </div>
                 <div class="answer">
-                    <p class="schedule-date">date: sunday, february 9th</p>
+                    <p class="schedule-date"><span style="color: #EC0E6A">date:</span> sunday, february 9th</p>
+                    <p class="schedule-date"><span style="color: #EC0E6A">location:</span> MIT Media Lab</p>
                     <table class="schedule-table">
                         <tr>
-                            <td class="schedule-time"><a>8:30 am</a></td>
+                            <td class="schedule-time"><a>7:00 am</a></td>
                             <td>check-in and breakfast</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time"><a>9:30 am</a></td>
+                            <td class="schedule-time"><a>8:00 am</a></td>
                             <td>opening ceremony</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time"><a>10:30 am</a></td>
-                            <td>workshop #1</td>
+                            <td class="schedule-time"><a>8:30 am</a></td>
+                            <td>hacking starts, team formation</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>11:30 am</a></td>
+                            <td>MIT student panel</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>12:00 pm</a></td>
+                            <td>lunch</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>2:30 pm</a></td>
+                            <td>campus excursion</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>4:00 pm</a></td>
+                            <td>Tim the Beaver meet and greet</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>5:30 pm</a></td>
+                            <td>hacking ends, dinner</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>6:00 pm</a></td>
+                            <td>judging</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>7:30 pm</a></td>
+                            <td>demos and closing ceremony</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time"><a>8:30 pm</a></td>
+                            <td>end of hackathon</td>
                         </tr>
 
                     </table>
                 </div>
-            </ul>
-        </div> 
+            </div>
+        </div>
     </div>
     <div id="play" class="container hidden">
         <canvas id="brickerbreaker-canvas"></canvas>
