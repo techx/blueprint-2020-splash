@@ -1,5 +1,5 @@
 #register {
-    top: 5%;
+    top: 10vh;
     transform: translateX(-50%);
 
     h1 {
@@ -7,7 +7,6 @@
         font-family: Bitwise, sans-serif;
         font-size: 80px;
         position: relative;
-        //top: 0px;
         text-align: center;
     }
 
@@ -15,7 +14,8 @@
         color: #fff;
         display: block;
         font-family: Hermit, sans-serif;
-        margin: 25vh auto;
+        font-size: 20px;
+        margin: 15vh auto 0;
         line-height: 2;
         text-align: center;
     }
