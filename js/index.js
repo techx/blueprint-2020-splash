@@ -142,24 +142,3 @@ window.onload = function() {
 
   setAnimationCookie();
 };
-
-// FAQ
-let coll = document.getElementsByClassName("question");
-for (let i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function(event) {
-    let span = this.childNodes[1];
-    if (span.style.transform.length === 0) {
-      span.style.transform = "rotate(90deg)";
-    } else {
-      span.style.transform = "";
-    }
-
-    let content = this.nextElementSibling;
-    console.log(content)
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
-}

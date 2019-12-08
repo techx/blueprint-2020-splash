@@ -63,16 +63,17 @@ let begAnimationTick = 0
 let tickSpeed = 2
 
 /** WINDOW FUNCTIONS **/
-function startBrickGame() {
+function startBrickGame(logoBounds) {
+	console.log(logoBounds)
 	for (var i = 0; i < vertBlocks; i++) {
 		let row = []
 		for (var j = 0; j < horizBlocks; j++) {  row.push(false) }
 		brokenBlocks.push(row)
 	}
 
-		Array(5).fill(Array(21).fill(false))
 	canvas = document.getElementById('brickerbreaker-canvas')
 	context = canvas.getContext('2d')
+	logoRect = logoBounds
 
 	fixCanvasDim()
 	resetGame()
@@ -133,7 +134,7 @@ function updateBall() {
 	// check for collision
 	updateBounds()
 	updatePaddleCollision()
-	checkLogoCollision()
+	updateBoxes() //checkLogoCollision()
 }
 
 function updateBounds() {
@@ -162,25 +163,34 @@ function updatePaddleCollision() {
 	}
 }
 
-function checkLogoCollision() {
-	// check whether we are inside the logo box
-	if (checkInLogoBox()) {
+function updateBoxes() {
+	let blocks = 0
+	const ballCorners = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
+	brokenBlocks.forEach((row, r_index) => {
+		row.forEach((broken, c_index) => {
+			//check whether block is there
+			if (!broken) {
+				blockTopX = logoTopX() + boxSize() * c_index
+				blockTopY = logoRect.y + boxSize() * r_index
+
+				ballCorners.forEach((corner) => {
+					const xCoord = ballX + corner[0] * ballR
+					const yCoord = ballY + corner[1] * ballR
+
+					//check whether block is inside
+					if ((xCoord >= blockTopX && xCoord <= blockTopX + boxSize()) && (yCoord >= blockTopY && yCoord <= blockTopY + boxSize())) {
+						brokenBlocks[r_index][c_index] = true
+						blocks++
+					}
+				})
+			}
+		})
+	})
+
+	if (blocks > 0) {
 		ballVy = -ballVy
+		ballVx = - ballVx
 	}
-}
-
-function checkLogoCollision() {
-	const boxHeight = boxSize() * vertBlocks
-	const boxWidth = boxSize() * horizBlocks
-	console.log(ballY, logoRect.y)
-	const yInBox = ballY + ballR > logoRect.y && ballY - ballR < logoRect.y + boxHeight
-	const xInBox = ballX + ballR > logoTopX() && ballY - ballR < logoTopX() + boxWidth
-
-	if (yInBox && xInBox) {
-		ballVy = -ballVy
-	}
-
-	return yInBox && xInBox
 }
 
 function resetGame() {
@@ -205,16 +215,39 @@ function drawScene() {
 		//drawHighlightSquare(thisRow, thisCol)
 	}
 
+	clearSquares()
+
 	drawPaddle()
 	drawBall()
 }
 
 function drawHighlightSquare(row, col) {
+	context.fillStyle = "#ffffff50"
+	drawSquare(row, col)
+}
+
+function clearSquares() {
+	brokenBlocks.forEach((row, r_index) => {
+		row.forEach((broken, c_index) => {
+			if (broken) {
+				clearSquare(r_index, c_index)
+			}
+		})
+	})
+}
+
+function drawSquare(row, col) {
 	topX = logoTopX() + boxSize() * col
 	topY = logoRect.y + boxSize() * row
-	context.fillStyle = "#ffffff50"
 	context.fillRect(topX, topY, boxSize(), boxSize())
 }
+
+function clearSquare(row, col) {
+	topX = logoTopX() + boxSize() * col
+	topY = logoRect.y + boxSize() * row
+	context.clearRect(topX, topY, boxSize(), boxSize())
+}
+
 
 function drawPaddle() {
 	context.drawImage(ballSvg, ballDrawX(), ballDrawY(), ballR * 2, ballR * 2)
@@ -225,8 +258,8 @@ function drawBall() {
 }
 
 function drawLogo() {
-	// context.fillStyle = "black"
-	// context.fillRect(logoTopX(), logoRect.y, boxSize() * horizBlocks, logoRect.height)
+	context.fillStyle = "black"
+	context.fillRect(logoTopX(), logoRect.y, boxSize() * horizBlocks, logoRect.height)
 	context.drawImage(logoSvg, logoRect.x, logoRect.y, logoRect.width, logoRect.height)
 }
 
