@@ -5,6 +5,11 @@
     color: #fff;
     font-size: 20px;
     padding-bottom: 1pt;
+    padding-top: 8px;
+
+    &:hover {
+        color: $main_yellow;
+    }
 }
 
 .answer{
@@ -16,4 +21,13 @@
     max-height: 0;
     transition: max-height 0.2s ease-out;
     padding-left: 1.1em;
+}
+
+#faq {
+    top: 5%;
+    transform: translateX(-50%);
+}
+
+.page-title {
+    margin-bottom: 25px;
 }

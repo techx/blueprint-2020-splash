@@ -56,7 +56,8 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 70vh; }
+  height: 80vh;
+  object-fit: fill; }
 
 #squares {
   position: fixed;
@@ -87,7 +88,8 @@ body {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 760px; }
+  width: 760px;
+  transition: opacity .25s ease; }
 
 .hidden {
   display: none; }
@@ -295,7 +297,10 @@ p {
   font-family: Hermit, sans-serif;
   color: #fff;
   font-size: 20px;
-  padding-bottom: 1pt; }
+  padding-bottom: 1pt;
+  padding-top: 8px; }
+  .question:hover {
+    color: #fff600; }
 
 .answer {
   color: #fff;
@@ -306,3 +311,10 @@ p {
   max-height: 0;
   transition: max-height 0.2s ease-out;
   padding-left: 1.1em; }
+
+#faq {
+  top: 5%;
+  transform: translateX(-50%); }
+
+.page-title {
+  margin-bottom: 25px; }
