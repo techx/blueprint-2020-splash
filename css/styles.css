@@ -108,7 +108,11 @@ body {
 .page-title {
   color: #4699d3;
   font-size: 5em;
-  font-family: Bitwise; }
+  font-family: Bitwise;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  text-align: center; }
 
 @keyframes float {
   from {
@@ -139,17 +143,6 @@ p {
   margin: 12px auto 0;
   text-align: center;
   width: 65%; }
-
-video {
-  position: absolute;
-  min-width: 100vw;
-  min-height: 100vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10; }
-  video.fade-out {
-    animation-name: fade-out; }
 
 .logo {
   display: block;
@@ -198,21 +191,6 @@ p {
     .items li a:hover h2 {
       color: #4699d3; }
 
-#play {
-  width: 100%;
-  height: 100%; }
-
-#brickerbreaker-canvas {
-  width: 100%;
-  height: 100%;
-  z-index: -99; }
-
-@keyframes fade-out {
-  from {
-    opacity: 1; }
-  to {
-    opacity: 0; } }
-
 @media only screen and (max-width: 760px) {
   .logo {
     width: 80vw; }
@@ -222,9 +200,7 @@ p {
     height: 24px;
     margin-right: 12px; }
   .items li a h2 {
-    font-size: 28px; }
-  #play-button {
-    display: none; } }
+    font-size: 28px; } }
 
 .schedule-items {
   display: block;
@@ -319,6 +295,5 @@ p {
 #faq {
   top: 5%;
   transform: translateX(-50%); }
-
-.page-title {
-  margin-bottom: 25px; }
+  #faq .page-title {
+    margin-bottom: 25px; }

@@ -80,6 +80,10 @@ body {
 	color: $light_accent;
 	font-size: 5em;
 	font-family: Bitwise;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
 }
 
 @keyframes float {
