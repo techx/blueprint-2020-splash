@@ -11,7 +11,7 @@ if (isMobile) {
 
 function updatePage() {
 
-  const pages = ["home", "play", "about", "register", "schedule", "faq"];
+  const pages = ["home", "play", "about", "register", "schedule", "faq", "win", "lose"];
   const newPageId = window.location.hash.substring(1);
 
   if (!pages.includes(newPageId)) {
