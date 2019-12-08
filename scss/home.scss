@@ -53,10 +53,6 @@ p {
                 vertical-align: middle;
             }
 
-            img.selected {
-                display: none;
-            }
-
             h2 {
                 color: #fff;
                 display: inline-block;
@@ -65,15 +61,19 @@ p {
                 vertical-align: middle;
             }
 
+            img.default {
+                display: none;
+            }
+
+            img.selected {
+                opacity: 0;
+                &#default-select{
+                    opacity: 1;
+                }
+            }
+
             &:hover {
-                img.default {
-                    display: none;
-                }
-
-                img.selected {
-                    display: inline-block;
-                }
-
+                
                 h2 {
                     color: #4699d3;
                 }

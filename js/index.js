@@ -134,6 +134,7 @@ document.onkeydown = shouldAnimate() ? function(e) {
   // Spacebar
   if (e.keyCode === 32) {
     video.style.opacity = 0;
+    console.log("SPACE")
 
     setTimeout(function() {
       video.classList.add("hidden");
@@ -194,5 +195,61 @@ for (let i = 0; i < coll.length; i++) {
       content.style.maxHeight = content.scrollHeight + "px";
     }
   });
+}
+
+// menu selectors
+menuItems = ["menu-play","menu-register","menu-schedule","menu-faq","menu-about"]
+
+for(let i=0; i < menuItems.length; i++){
+  let item = document.getElementById(menuItems[i])
+  item.onmouseover = function(){
+    var selectors = document.getElementsByClassName("selected")
+    for (let j=0; j < selectors.length; j++){
+      if(selectors[j].parentNode == item){
+        selectors[j].style.opacity = 1;
+        console.log("bruh");
+      }
+      else {
+        selectors[j].style.opacity = 0;
+        console.log("lol");
+      }
+    }
+  }
+}
+
+document.addEventListener('keydown', handleMenu);
+
+var currentSelected = 0
+function handleMenu(e){
+  let url = window.location.hash.substring(1);
+  if(e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "Enter"){
+    if(e.key === "ArrowUp"){
+      currentSelected = (menuItems.length + currentSelected - 1) % menuItems.length
+    }
+    else if(e.key === "ArrowDown"){
+      currentSelected = (menuItems.length + currentSelected + 1) % menuItems.length
+    }
+    else if(e.key === "Enter" && (url === 'home' || url === '')) {
+      document.getElementById(menuItems[currentSelected]).click()
+    }
+    for (let j=0; j < menuItems.length; j++){
+      let item = document.getElementById(menuItems[j])
+      console.log(currentSelected, j)
+      if(j === currentSelected){
+        item.childNodes[3].style.opacity = 1;
+        console.log("LOL")
+      }
+      else {
+        item.childNodes[3].style.opacity = 0;
+      }
+    }
+  }
+  else if(e.key === "Escape"){
+    const menuButton = document.getElementById("menu-button");
+    if(!menuButton.classList.contains("hidden")){
+      window.location.hash = '#home'
+    }
+
+  }
 }
 
