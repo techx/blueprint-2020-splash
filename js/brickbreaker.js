@@ -14,7 +14,7 @@ paddleXR = () => { // computed variable: "x radius" of the ball (i.e. width / 2)
 }
 
 const ballR = 20
-const ballStartDeltaH = 10 // start of ball in pixels above paddle
+const ballStartDeltaH = 40 // start of ball in pixels above paddle
 
 ballCollisionH = () => { // the y coordinate of the center of the ball that represents collision with the paddle
 	return paddleY() - (paddleYR + ballR) 
@@ -38,7 +38,7 @@ logoSvg.src = ('../assets/svg/blueprintlogo.svg')
 // GAME VARIABLES
 let score = 0
 
-let canvas, context
+let canvas, context, listener
 
 let ballX, ballY
 
@@ -61,11 +61,12 @@ logoTopX = () => {
 }
 
 let brokenBlocks = []
+let totalBroken = []
 
 let animationTick = 0
-let animationRepeat = 4
+let animationRepeat = 3
 let animationInterval = 17
-let animationOn = 6
+let animationOn = 7
 
 /** WINDOW FUNCTIONS **/
 function startBrickGame() {
@@ -78,12 +79,15 @@ function startBrickGame() {
 	canvas = document.getElementById('brickerbreaker-canvas')
 	context = canvas.getContext('2d')
 
+	animationTick = 0
+	totalBroken = 0
+
 	fixCanvasDim()
 	resetGame()
 
-	animationTick = 0
+	stopGame()
 
-  	setInterval(gameTick, 1000/framesPerSecond)
+  	listener = setInterval(gameTick, 1000/framesPerSecond)
   	canvas.addEventListener('mousemove', updateMousePos)
 }
 
@@ -94,10 +98,10 @@ function resetBricks() {
 	for (let i = 0; i < vertBlocks; i++) {
 		let row = []
 		for (let j = 0; j < horizBlocks; j++) {  
-			console.log(i, j, (i == 0 && !topIncluded.includes(j)))
 			if ((i == 0 && !topIncluded.includes(j)) || (i == vertBlocks-1 && !bottomIncluded.includes(j))) {
-				console.log("hiiiii")
 				row.push(true) 
+				totalBroken++
+
 			} else {
 				row.push(false)
 			}
@@ -116,17 +120,14 @@ function resetGame() {
 
 	ballVx = 0
 	ballVy = 10
-	console.log(brokenBlocks)
 }
 
 window.onresize = function(event) {
     if (window.location.hash.substring(1) !== "play") {
         return
     }
-}
 
-window.onresize = function(event) {
-	fixCanvasDim()
+    fixCanvasDim()
 }
 
 function fixCanvasDim() {
@@ -160,6 +161,26 @@ function updateMousePos(event){
   	paddleX = mouseX
 }
 
+/** WIN/LOSS STATE **/
+function lostGame() {
+	window.location.hash = 'lose'
+	document.getElementById('blocks-left').innerHTML = String((vertBlocks * horizBlocks) - totalBroken).padStart(2, '0')
+	stopGame()
+}
+
+function wonGame() {
+	window.location.hash = 'win'
+	document.getElementById('score').innerHTML = Math.round(((animationTick) / 30) * 10) / 10
+	stopGame()
+}
+
+function stopGame() {
+	if (listener) {
+		clearInterval(listener)
+	}
+}
+
+
 /** GAME UPDATES **/
 function positionUpdate() {
 	updateBall()
@@ -179,7 +200,7 @@ function updateBall() {
 function updateBounds() {
 	if (ballY >= gameHeight) {
 		//lost game
-		resetGame()
+		lostGame()
 	} else if (ballY <= 0) {
 		ballVy = -ballVy
 	} else if (ballX <= 0 || ballX >= gameWidth) {
@@ -219,7 +240,9 @@ function updateBoxes() {
 					let rect = rectInCircle(ballX, ballY, ballR, blockTopX, blockTopY, boxSize())
 					if (rect !== null) {
 						brokenBlocks[r_index][c_index] = true
-						score += 1
+						score++
+						totalBroken++
+
 						//update which ones to flip
 						if (flips[0] == flips[1]) {
 							flips = rect
@@ -230,14 +253,16 @@ function updateBoxes() {
 			})
 		})
 
-		//console.log(flips)
-
 		if (flips[0] == 1) {
 			ballVx = - ballVx
 		}
 		if (flips[1] == 1) {
 			ballVy = - ballVy
 		}
+	}
+
+	if (totalBroken >= vertBlocks * horizBlocks) {
+		wonGame()
 	}
 }
 
@@ -331,7 +356,7 @@ function drawGrid() {
 	brokenBlocks.forEach((row, r_index) => {
 		row.forEach((broken, c_index) => {
 			if (!broken) {
-				context.lineWidth = 1
+				context.lineWidth = 0.75
 				context.strokeStyle = '#ffffff'
 				strokeSquare(r_index, c_index)
 			}

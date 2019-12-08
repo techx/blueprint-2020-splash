@@ -30,6 +30,7 @@ function updatePage() {
   }
   
   currentPage.style.opacity = 0;
+  let timeout = newPageId === "play" ? 0 : 150
   setTimeout(function(){
     currentPage.classList.add("hidden");
     var newPage = document.getElementById(newPageId)
@@ -41,7 +42,7 @@ function updatePage() {
     } else {
       menuButton.classList.remove("hidden");
     }
-  }, 150)
+  }, timeout)
   
   document.getElementById(newPageId).classList.remove("hidden");
 
