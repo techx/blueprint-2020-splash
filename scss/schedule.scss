@@ -41,6 +41,7 @@
 .schedule-table {
     margin: 0 auto;
     display: table;
+    padding-left: 80px;
 
     tr {
         td {
@@ -50,12 +51,17 @@
             font-size: 15px;
             color: #fff;
 			padding: 5px;
+            width: 320px;
+
             &.schedule-time {
             	color: $main_yellow;
+                width: 120px;
+
 				a {
 					margin-right: 30px;
 				}
             }
+
             &:hover {
                 h2 {
                     color: #4699d3;

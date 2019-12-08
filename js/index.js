@@ -133,8 +133,7 @@ document.onkeydown = shouldAnimate() ? function(e) {
 
   // Spacebar
   if (e.keyCode === 32) {
-    video.style.animationDuration = "0.5s";
-    video.classList.add("fade-out");
+    video.style.opacity = 0;
 
     setTimeout(function() {
       video.classList.add("hidden");
