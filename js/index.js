@@ -79,8 +79,8 @@ function generateSquares() {
       square.classList.add("yellow");
     }
 
-    // Random position between 5-95% vertically and horizontally
-    square.style.top = (Math.random() * 90 + 5) + "%";
+    // Random position between 5-80% vertically, 5-95% horizontally
+    square.style.top = (Math.random() * 75 + 5) + "%";
     square.style.left = (Math.random() * 90 + 5) + "%";
 
     squares.appendChild(square);

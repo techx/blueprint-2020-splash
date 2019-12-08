@@ -46,26 +46,19 @@ p {
     margin: auto;
 
     .question {
+        cursor: pointer;
+        color: #fff;
     	width: 280px;
     	margin: 0 auto;
         margin-top: 10px;
         display: block;
 
-        img {
-            display: inline-block;
-            height: 32px;
-            margin-right: 10px;
-            vertical-align: middle;
-            transition: transform 0.25s ease;
-        }
-
-        img.selected {
-            display: none;
-            transform: none;
+        span {
+            font-size: 24px;
+            margin-right: 12px;
         }
 
         h2 {
-            color: #fff;
             display: inline-block;
             font-family: Hermit, sans-serif;
             font-size: 36px;
@@ -73,30 +66,18 @@ p {
         }
 
         &:hover {
-            h2 {
-                color: #4699d3;
-            }
+            color: #4699d3;
         }
+
         &.active {
-            h2.learnathon {
+            &.learnathon {
                 color: #FFF600;
             }
-            h2.hackathon {
+
+            &.hackathon {
                 color: #EC0E6A;
             }
-
-            img.default {
-                display: none;
-                transform: rotate(90deg);
-                
-            }
-            img.selected {
-                transform: rotate(90deg);
-                display: inline-block;
-            }
         }
-
-       
     }
 }
 
