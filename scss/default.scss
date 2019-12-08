@@ -57,7 +57,7 @@ body {
     width: 760px;
     transition: opacity .25s ease;
     height: 70vh;
-    overflow-y: scroll;
+    // overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -103,6 +103,9 @@ body {
 	text-align: center;
 }
 
+
+
+
 @keyframes float {
     from {
         margin-top: 0;
@@ -123,10 +126,5 @@ body {
     }
 }
 
-@media only screen and (max-width: 400px) {
-    .container {
-        width: 80%;
-    }
-}
 
 
