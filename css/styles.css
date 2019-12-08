@@ -91,6 +91,9 @@ body {
   width: 760px;
   transition: opacity .25s ease; }
 
+#play {
+  top: 50%; }
+
 .hidden {
   display: none; }
 

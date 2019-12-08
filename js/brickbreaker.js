@@ -63,8 +63,7 @@ let begAnimationTick = 0
 let tickSpeed = 2
 
 /** WINDOW FUNCTIONS **/
-function startBrickGame(logoBounds) {
-	console.log(logoBounds)
+function startBrickGame() {
 	for (var i = 0; i < vertBlocks; i++) {
 		let row = []
 		for (var j = 0; j < horizBlocks; j++) {  row.push(false) }
@@ -73,7 +72,6 @@ function startBrickGame(logoBounds) {
 
 	canvas = document.getElementById('brickerbreaker-canvas')
 	context = canvas.getContext('2d')
-	logoRect = logoBounds
 
 	fixCanvasDim()
 	resetGame()
@@ -83,6 +81,9 @@ function startBrickGame(logoBounds) {
 }
 
 window.onresize = function(event) {
+    if (window.location.hash.substring(1) !== "play") {
+        return;
+    }
 
 	fixCanvasDim()
 	//TODO: make sure nothing is out of bounds
@@ -95,9 +96,9 @@ function fixCanvasDim() {
 	canvas.height = gameHeight
 
 	const homeElem = document.getElementById('home')
-	homeElem.style.display = 'block'
+    homeElem.classList.remove("hidden");
 	logoRect = document.getElementById('main-logo').getBoundingClientRect()
-	homeElem.style.display = 'none'
+    homeElem.classList.add("hidden");
 }
 
 function gameTick() {
