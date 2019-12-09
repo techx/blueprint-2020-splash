@@ -55,8 +55,14 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 760px;
-    transition: opacity .25s ease;
+    transition: opacity 0.25s ease;
     height: 70vh;
+    &#play {
+    	transition: none;
+    }
+    // .logo {
+    // 	transition: none;
+    // }
     // overflow-y: scroll;
 }
 

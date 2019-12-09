@@ -9,6 +9,11 @@ if (isMobile) {
   document.getElementById("play-button").classList.add("hidden");
 }
 
+const menuButton = document.getElementById("menu-button");
+menuButton.onclick = function(){ 
+  if(window.location.hash.substring(1) === "play"){stopGame() }
+}
+
 function updatePage() {
 
   const pages = ["home", "play", "about", "register", "schedule", "faq", "win", "lose"];
@@ -29,6 +34,10 @@ function updatePage() {
     }
   }
   
+  if (newPageId === "play") {
+    setTimeout(startBrickGame(), 250);
+  }
+
   currentPage.style.opacity = 0;
   let timeout = newPageId === "play" ? 0 : 150
   setTimeout(function(){
@@ -45,12 +54,8 @@ function updatePage() {
   }, timeout)
   
   document.getElementById(newPageId).classList.remove("hidden");
-
-  const menuButton = document.getElementById("menu-button");
-
-  if (newPageId === "play") {
-    startBrickGame()
-  }
+  
+  
 
   if (newPageId === "home") {
     menuButton.classList.add("hidden");
@@ -161,6 +166,7 @@ if (window.location.hash.length !== 0) {
   document.getElementById("menu-button").classList.add("hidden");
 }
 
+
 window.onload = function() {
   generateSquares();
 
@@ -182,12 +188,13 @@ for (let i = 0; i < coll.length; i++) {
       this.classList.add("active");
     }
 
-    let span = this.childNodes[1];
-    if (span.style.transform.length === 0) {
-      span.style.transform = "rotate(90deg)";
-    } else {
-      span.style.transform = "";
-    }
+    // let span = this.childNodes[1];
+    // console.log(span)
+    // if (span.style.transform.length === 0) {
+    //   span.style.transform = "rotate(90deg)";
+    // } else {
+    //   span.style.transform = "";
+    // }
 
     let content = this.nextElementSibling;
     if (content.style.maxHeight) {
@@ -198,59 +205,8 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
-// menu selectors
-menuItems = ["menu-play","menu-register","menu-schedule","menu-faq","menu-about"]
 
-for(let i=0; i < menuItems.length; i++){
-  let item = document.getElementById(menuItems[i])
-  item.onmouseover = function(){
-    var selectors = document.getElementsByClassName("selected")
-    for (let j=0; j < selectors.length; j++){
-      if(selectors[j].parentNode == item){
-        selectors[j].style.opacity = 1;
-        console.log("bruh");
-      }
-      else {
-        selectors[j].style.opacity = 0;
-        console.log("lol");
-      }
-    }
-  }
+//Replay Button
+document.getElementById('win-button').onclick = function(){
+  window.location.hash = 'play'
 }
-
-document.addEventListener('keydown', handleMenu);
-
-var currentSelected = 0
-function handleMenu(e){
-  let url = window.location.hash.substring(1);
-  if(e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "Enter"){
-    if(e.key === "ArrowUp"){
-      currentSelected = (menuItems.length + currentSelected - 1) % menuItems.length
-    }
-    else if(e.key === "ArrowDown"){
-      currentSelected = (menuItems.length + currentSelected + 1) % menuItems.length
-    }
-    else if(e.key === "Enter" && (url === 'home' || url === '')) {
-      document.getElementById(menuItems[currentSelected]).click()
-    }
-    for (let j=0; j < menuItems.length; j++){
-      let item = document.getElementById(menuItems[j])
-      console.log(currentSelected, j)
-      if(j === currentSelected){
-        item.childNodes[3].style.opacity = 1;
-        console.log("LOL")
-      }
-      else {
-        item.childNodes[3].style.opacity = 0;
-      }
-    }
-  }
-  else if(e.key === "Escape"){
-    const menuButton = document.getElementById("menu-button");
-    if(!menuButton.classList.contains("hidden")){
-      window.location.hash = '#home'
-    }
-
-  }
-}
-

@@ -20,6 +20,12 @@
 #faq {
     top: 10%;
     transform: translateX(-50%);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
     .question {
         cursor: pointer;
         position: relative;
@@ -32,6 +38,10 @@
         &:hover {
             color: $main_yellow;
         }
+
+    }
+    #default-faq-select {
+        color: $main_yellow;
     }
     @media only screen and (max-width: 400px){
     .question {
