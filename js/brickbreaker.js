@@ -1,5 +1,6 @@
 /** VARIABLES **/
 
+
 // CONSTANTS
 let gameWidth = 0
 let gameHeight = 0
