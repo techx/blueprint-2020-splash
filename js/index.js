@@ -207,6 +207,7 @@ for (let i = 0; i < coll.length; i++) {
 
 
 //Replay Button
-document.getElementById('win-button').onclick = function(){
-  window.location.hash = 'play'
-}
+let btns = Array.from(document.getElementsByClassName('replay-btn'))
+btns.map(function(a){
+  a.onclick = function(){window.location.hash = 'play'}
+})

@@ -407,7 +407,8 @@ p {
   position: relative;
   margin: 10px auto;
   text-align: center;
-  display: block; }
+  display: block;
+  cursor: pointer; }
   #win-button:hover {
     color: #fff600; }
   #win-button .selected {
