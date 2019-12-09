@@ -73,7 +73,7 @@ document.addEventListener('keydown', handleMenu);
 
 function handleMenu(e){
   let url = window.location.hash.substring(1);
-  if(!url){
+  if(url === ''){
     url = "home"
     console.log(url)
   }
