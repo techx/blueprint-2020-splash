@@ -27,13 +27,13 @@ boxSize = () => { return logoRect.height / vertBlocks } // the dimension of the 
 
 // SVG ASSETS
 let ballSvg = new Image()
-ballSvg.src = ('../assets/SVG/ball.svg')
+ballSvg.src = ('/assets/SVG/ball.svg')
 
 let paddleSvg = new Image()
-paddleSvg.src = ('../assets/SVG/bar.svg')
+paddleSvg.src = ('/assets/SVG/bar.svg')
 
 let logoSvg = new Image()
-logoSvg.src = ('../assets/SVG/blueprintlogo.svg')
+logoSvg.src = ('/assets/SVG/blueprintlogo.svg')
 
 // GAME VARIABLES
 let score = 0
