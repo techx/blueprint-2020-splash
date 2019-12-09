@@ -73,6 +73,7 @@ document.addEventListener('keydown', handleMenu);
 
 function handleMenu(e){
   let url = window.location.hash.substring(1);
+  url = url === "" ? "home" : url
   let oldSelected = currentSelected[url]
   if(Object.keys(allItems).includes(url) && (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "Enter")){
     menuItems = allItems[url]
@@ -87,7 +88,7 @@ function handleMenu(e){
       console.log(bruh)
       bruh.click()
     }
-    // console.log(oldSelected, currentSelected[url])
+    console.log(oldSelected, currentSelected[url])
     document.getElementById(menuItems[oldSelected]).childNodes[3].style.opacity = 0;
     document.getElementById(menuItems[currentSelected[url]]).childNodes[3].style.opacity = 1;
   }
@@ -106,5 +107,4 @@ function handleReplay(e){
   if(e.key === "Enter" && (url === 'lose' || url === 'win')){
     document.getElementById('win-button').click()
   }
-  console.log(e.key)
 }
