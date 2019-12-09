@@ -73,10 +73,10 @@ document.addEventListener('keydown', handleMenu);
 
 function handleMenu(e){
   let url = window.location.hash.substring(1);
-  // if(!url){
-  //   url = "home"
-  //   console.log(url)
-  // }
+  if(!url){
+    url = "home"
+    console.log(url)
+  }
   let oldSelected = currentSelected[url]
   if(Object.keys(allItems).includes(url) && (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "Enter")){
     menuItems = allItems[url]
