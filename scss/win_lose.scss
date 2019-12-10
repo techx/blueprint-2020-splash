@@ -23,11 +23,15 @@
     &:hover {
         color: $main_yellow;
     }
+    .selected {
+        opacity: 1;
+    }
+    cursor: pointer;
+
 }
 
 #score {
     font-family: Bitwise, san-serif;
-    height: 25vh;
     font-size: 100px;
     color: $main_yellow;
     text-align: center;
@@ -50,5 +54,6 @@
 .score-sublabel {
     padding-left: 10px;
     width: auto;
-    margin: 0;
+    margin-bottom: 90px;
+    margin-top: 0;
 }

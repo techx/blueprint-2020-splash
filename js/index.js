@@ -9,6 +9,11 @@ if (isMobile) {
   document.getElementById("play-button").classList.add("hidden");
 }
 
+const menuButton = document.getElementById("menu-button");
+menuButton.onclick = function(){ 
+  if(window.location.hash.substring(1) === "play"){stopGame() }
+}
+
 function updatePage() {
 
   const pages = ["home", "play", "about", "register", "schedule", "faq", "win", "lose"];
@@ -29,6 +34,10 @@ function updatePage() {
     }
   }
   
+  if (newPageId === "play") {
+    setTimeout(startBrickGame(), 250);
+  }
+
   currentPage.style.opacity = 0;
   let timeout = newPageId === "play" ? 0 : 150
   setTimeout(function(){
@@ -45,12 +54,8 @@ function updatePage() {
   }, timeout)
   
   document.getElementById(newPageId).classList.remove("hidden");
-
-  const menuButton = document.getElementById("menu-button");
-
-  if (newPageId === "play") {
-    startBrickGame()
-  }
+  
+  
 
   if (newPageId === "home") {
     menuButton.classList.add("hidden");
@@ -135,6 +140,7 @@ document.onkeydown = shouldAnimate() ? function(e) {
   // Spacebar
   if (e.keyCode === 32) {
     video.style.opacity = 0;
+    console.log("SPACE")
 
     setTimeout(function() {
       video.classList.add("hidden");
@@ -160,6 +166,7 @@ if (window.location.hash.length !== 0) {
   document.getElementById("menu-button").classList.add("hidden");
 }
 
+
 window.onload = function() {
   generateSquares();
 
@@ -181,12 +188,13 @@ for (let i = 0; i < coll.length; i++) {
       this.classList.add("active");
     }
 
-    let span = this.childNodes[1];
-    if (span.style.transform.length === 0) {
-      span.style.transform = "rotate(90deg)";
-    } else {
-      span.style.transform = "";
-    }
+    // let span = this.childNodes[1];
+    // console.log(span)
+    // if (span.style.transform.length === 0) {
+    //   span.style.transform = "rotate(90deg)";
+    // } else {
+    //   span.style.transform = "";
+    // }
 
     let content = this.nextElementSibling;
     if (content.style.maxHeight) {
@@ -197,3 +205,9 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
+
+//Replay Button
+let btns = Array.from(document.getElementsByClassName('replay-btn'))
+btns.map(function(a){
+  a.onclick = function(){window.location.hash = 'play'}
+})

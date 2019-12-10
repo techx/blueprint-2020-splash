@@ -2,6 +2,33 @@
     display: block;
     list-style-type: none;
     margin: auto;
+
+    img {
+        display: inline-block;
+        height: 32px;
+        margin-right: 16px;
+        vertical-align: middle;
+    }
+
+    img.selected {
+        opacity: 0;
+        &#default-select{
+            opacity: 1;
+        }
+    }
+
+    h2 {
+        display: inline-block;
+        font-family: Hermit, sans-serif;
+        font-size: 36px;
+        vertical-align: middle;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
     .question {
         color: #fff;
         cursor: pointer;
@@ -14,23 +41,20 @@
             font-size: 24px;
         }
 
-        h2 {
-            display: inline-block;
-            font-family: Hermit, sans-serif;
-            font-size: 36px;
-            vertical-align: middle;
-        }
+        
 
         &:hover {
             color: #4699d3;
         }
 
+        
+
         &.active {
-            &.learnathon {
+            &.schedule-learn {
                 color: #fff600;
             }
 
-            &.hackathon {
+            &.schedule-hack {
                 color: #ec0e6a;
             }
         }
