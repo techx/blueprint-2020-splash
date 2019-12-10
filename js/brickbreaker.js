@@ -333,6 +333,8 @@ function drawScene() {
 	clearSquares()
 
 	context.clearRect(logoTopX(), logoRect.y + boxSize() * (vertBlocks), boxSize() * horizBlocks, 10)
+	context.clearRect(logoTopX(), logoRect.y - 10, boxSize() * horizBlocks, 10)
+
 
 	if (animationTick % animationInterval <= animationOn && animationTick < animationRepeat * animationInterval) {
 		drawGrid()
