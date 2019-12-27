@@ -69,13 +69,10 @@ function handleFaq(e){
   }
 }
 
-document.addEventListener('keydown', handleMenu);
-
 function handleMenu(e){
   let url = window.location.hash.substring(1);
   if(url === ''){
     url = "home"
-    console.log(url)
   }
   let oldSelected = currentSelected[url]
   if(Object.keys(allItems).includes(url) && (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "Enter")){
@@ -91,7 +88,7 @@ function handleMenu(e){
       console.log(bruh)
       bruh.click()
     }
-    console.log(oldSelected, currentSelected[url])
+    // console.log(oldSelected, currentSelected[url])
     document.getElementById(menuItems[oldSelected]).childNodes[3].style.opacity = 0;
     document.getElementById(menuItems[currentSelected[url]]).childNodes[3].style.opacity = 1;
   }

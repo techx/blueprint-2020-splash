@@ -141,6 +141,9 @@ document.onkeydown = shouldAnimate() ? function(e) {
   if (e.keyCode === 32) {
     video.style.opacity = 0;
     console.log("SPACE")
+    
+    //add button pressing
+    document.addEventListener('keydown', handleMenu);
 
     setTimeout(function() {
       video.classList.add("hidden");
