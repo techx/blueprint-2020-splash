@@ -72,6 +72,7 @@ function handleFaq(e){
 document.addEventListener('keydown', handleMenu);
 
 function handleMenu(e){
+  console.log(e.key)
   let url = window.location.hash.substring(1);
   let oldSelected = currentSelected[url]
   if(Object.keys(allItems).includes(url) && (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "Enter")){
@@ -106,5 +107,5 @@ function handleReplay(e){
   if(e.key === "Enter" && (url === 'lose' || url === 'win')){
     document.getElementById('win-button').click()
   }
-  console.log(e.key)
+  
 }
