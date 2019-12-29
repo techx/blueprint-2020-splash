@@ -91,7 +91,7 @@ body {
     color: #fff;
     font-family: Hermit, sans-serif;
     font-size: 24px;
-    position: absolute;
+    position: fixed;
     top: 16px;
     left: 16px;
     z-index: 10;
@@ -117,14 +117,20 @@ body {
 @keyframes float {
     from {
         margin-top: 0;
+        width: 24px;
+        height: 24px;
     }
 
     50% {
         margin-top: 32px;
+        width: 27px;
+        height: 27px;
     }
 
     to {
         margin-top: 0;
+        width: 24px;
+        height: 24px;
     }
 }
 

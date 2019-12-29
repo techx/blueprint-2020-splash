@@ -1,3 +1,20 @@
+#loading-bg {
+    background-image: url("../assets/arcade2.svg");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.25s ease;
+}
+
+
 #loading {
     position: fixed;
     min-width: 100vw;

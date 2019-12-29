@@ -1,3 +1,5 @@
+
+// Mobile features
 var isMobile = false;
 
 if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -9,10 +11,12 @@ if (isMobile) {
   document.getElementById("play-button").classList.add("hidden");
 }
 
+// Menu button
 const menuButton = document.getElementById("menu-button");
 menuButton.onclick = function(){ 
   if(window.location.hash.substring(1) === "play"){stopGame() }
 }
+
 
 function updatePage() {
 
@@ -65,6 +69,8 @@ function updatePage() {
 
 }
 
+
+// Squares
 function generateSquares() {
   const numSquares = 25;
   const squares = document.getElementById("squares");
@@ -88,7 +94,6 @@ function generateSquares() {
     // Random position between 5-80% vertically, 5-95% horizontally
     square.style.top = (Math.random() * 75 + 5) + "%";
     square.style.left = (Math.random() * 90 + 5) + "%";
-
     squares.appendChild(square);
   }
 }
@@ -107,6 +112,8 @@ function parseCookies() {
   return cookies;
 }
 
+
+// Beginning video 
 function setAnimationCookie() {
   const currentTime = new Date().getTime();
   const eightHours = 1000 * 60 * 60 * 8;
@@ -136,17 +143,21 @@ if (!shouldAnimate()) {
 
 document.onkeydown = shouldAnimate() ? function(e) {
   const video = document.getElementById("loading");
-
   // Spacebar
   if (e.keyCode === 32) {
     video.style.opacity = 0;
     console.log("SPACE")
+    //add button pressing
+    document.addEventListener('keydown', handleMenu);
 
     setTimeout(function() {
       video.classList.add("hidden");
     }, 500);
   }
 } : null;
+
+
+
 
 var containers = document.getElementsByClassName("container")
 for(let i=0; i < containers.length; i++){
