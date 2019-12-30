@@ -117,8 +117,8 @@ function parseCookies() {
 // Beginning video 
 function setAnimationCookie() {
   const currentTime = new Date().getTime();
-  const eightHours = 1000 * 60 * 60 * 8;
-  const expireDate = new Date(currentTime + eightHours);
+  const oneWeek = 1000 * 60 * 60 * 24 * 7;
+  const expireDate = new Date(currentTime + oneWeek);
 
   document.cookie = "animation=" + new Date() + "; expires=" + expireDate + "; path=/";
 }
@@ -129,9 +129,9 @@ function shouldAnimate() {
   if ("animation" in cookies) {
     const lastAnimationTime = new Date(cookies["animation"]).getTime();
     const timeSinceLastAnimation = new Date().getTime() - lastAnimationTime;
-    const eightHours = 1000 * 60 * 60 * 8;
+    const oneWeek = 1000 * 60 * 60 * 24 * 7;
 
-    return timeSinceLastAnimation >= eightHours;
+    return timeSinceLastAnimation >= oneWeek;
   }
 
   return true;
@@ -222,3 +222,5 @@ for (let i = 0; i < coll.length; i++) {
 document.getElementById('win-button').onclick = function(){
   window.location.hash = 'play'
 }
+
+// Animation

@@ -210,13 +210,15 @@ p {
 
 #loading-bg {
   position: fixed;
-  overflow: initial;
-  overflow-x: hidden;
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
+  min-width: 100vw;
+  min-height: 100vh;
   z-index: 1000;
   opacity: 1;
-  transition: opacity 0.25s ease; }
+  transition: opacity 0.25s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 #loading {
   position: fixed;

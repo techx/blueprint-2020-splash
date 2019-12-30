@@ -1,15 +1,17 @@
 #loading-bg {
     position: fixed;
-    
-    overflow: initial;
-    overflow-x: hidden;
-    // min-width: 100vw;
-    // min-height: 100vh;
-    height: 100%;
-    width: 100%;
+    overflow: hidden;
+    min-width: 100vw;
+    min-height: 100vh;
+    // min-height: 100%;
+    // width: 200vw;
     z-index: 1000;
     opacity: 1;
     transition: opacity 0.25s ease;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
