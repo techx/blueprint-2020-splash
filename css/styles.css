@@ -122,6 +122,27 @@ body {
   #menu-button:hover {
     color: #4699d3; }
 
+#game-time-label {
+  color: #fff;
+  font-family: Hermit, sans-serif;
+  font-size: 24px;
+  position: absolute;
+  top: 16px;
+  right: 0px;
+  margin-right: 45%; }
+  #game-time-label .game-time {
+    display: relative; }
+
+#blocks-left-label {
+  color: #fff;
+  font-family: Hermit, sans-serif;
+  font-size: 24px;
+  position: absolute;
+  top: 16px;
+  right: 26px; }
+  #blocks-left-label .blocks-left {
+    display: relative; }
+
 .page-title {
   color: #4699d3;
   font-size: 5em;
@@ -159,7 +180,8 @@ body {
     text-align: left; }
   #about li {
     padding-left: 1em;
-    text-indent: -1em; }
+    text-indent: -1em;
+    padding-bottom: 0.5em; }
   #about li:before {
     content: ">";
     padding-right: 10px; }
@@ -177,25 +199,23 @@ p {
   font-family: Hermit, sans-serif;
   margin: 12px auto 0;
   text-align: center;
-  width: 65%; }
+  width: 65%;
+  padding-bottom: 1em; }
 
 .about-date {
   margin-top: 10px;
   margin-bottom: 5px;
-  font-size: 20px; }
+  font-size: 20px;
+  font-weight: bold; }
 
 #loading-bg {
-  background-image: url("../assets/arcade2.svg");
+  position: fixed;
+  overflow: initial;
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  top: 50%;
-  left: 50%;
   z-index: 1000;
   opacity: 1;
-  transform: translate(-50%, -50%);
   transition: opacity 0.25s ease; }
 
 #loading {
@@ -236,6 +256,8 @@ p {
   margin: 16px auto 0; }
   .items li a {
     display: block; }
+    .items li a.hover h2 {
+      color: #4699d3; }
     .items li a img {
       display: inline-block;
       height: 32px;
@@ -247,14 +269,10 @@ p {
       font-family: Hermit, sans-serif;
       font-size: 36px;
       vertical-align: middle; }
-    .items li a img.default {
-      display: none; }
     .items li a img.selected {
       opacity: 0; }
       .items li a img.selected#default-select {
         opacity: 1; }
-    .items li a:hover h2 {
-      color: #4699d3; }
 
 @media only screen and (max-width: 760px) {
   .logo {
@@ -271,16 +289,22 @@ p {
   display: block;
   list-style-type: none;
   margin: auto; }
+  .schedule-items div.hover h2 {
+    color: #4699d3; }
+  .schedule-items div.default h2 {
+    color: #4699d3; }
   .schedule-items img {
     display: inline-block;
     height: 32px;
     margin-right: 16px;
-    vertical-align: middle; }
+    vertical-align: middle;
+    transition: transform 0.1s ease-in; }
   .schedule-items img.selected {
     opacity: 0; }
     .schedule-items img.selected#default-select {
       opacity: 1; }
   .schedule-items h2 {
+    color: #fff;
     display: inline-block;
     font-family: Hermit, sans-serif;
     font-size: 36px;
@@ -318,7 +342,7 @@ p {
     line-height: 18px;
     text-align: left;
     font-family: Hermit, sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     color: #fff;
     padding: 5px;
     width: 320px; }
@@ -337,7 +361,7 @@ p {
 .schedule-date {
   margin-top: 10px;
   margin-bottom: 5px;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold; }
 
 #register {
@@ -372,7 +396,7 @@ p {
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.2s ease-out;
-  padding-left: 1.1em; }
+  padding-left: 2.5em; }
 
 #faq {
   top: 10%;
@@ -395,12 +419,12 @@ p {
     color: #fff;
     font-size: 20px;
     padding-bottom: 1pt;
-    padding-top: 8px;
+    padding-top: 10px;
     font-weight: bold; }
     #faq .question:hover {
-      color: #fff600; }
+      color: #4699d3; }
   #faq #default-faq-select {
-    color: #fff600; }
+    color: #4699d3; }
   @media only screen and (max-width: 400px) {
     #faq .question {
       font-size: 15px; }

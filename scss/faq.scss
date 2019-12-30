@@ -14,7 +14,7 @@
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.2s ease-out;
-    padding-left: 1.1em;
+    padding-left: 2.5em;
 }
 
 #faq {
@@ -33,15 +33,15 @@
         color: #fff;
         font-size: 20px;
         padding-bottom: 1pt;
-        padding-top: 8px;
+        padding-top: 10px;
         font-weight: bold;
         &:hover {
-            color: $main_yellow;
+            color: $light_accent;
         }
 
     }
     #default-faq-select {
-        color: $main_yellow;
+        color: $light_accent;
     }
     @media only screen and (max-width: 400px){
     .question {

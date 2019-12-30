@@ -12,7 +12,7 @@
       li {
         padding-left: 1em;
         text-indent: -1em;
-    
+        padding-bottom: 0.5em;
       }
       
       li:before {
@@ -38,10 +38,12 @@ p {
     // position: relative;
     text-align: center;
     width: 65%;
+    padding-bottom: 1em;
 }
 
 .about-date {
 	margin-top: 10px;
 	margin-bottom: 5px;
     font-size: 20px;
+    font-weight: bold;
 }

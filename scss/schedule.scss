@@ -2,22 +2,36 @@
     display: block;
     list-style-type: none;
     margin: auto;
+    div.hover {
+        h2 {
+            color: #4699d3;
+        }
+    }
+
+    div.default {
+        h2 {
+            color: #4699d3;
+        }
+    }
 
     img {
         display: inline-block;
         height: 32px;
         margin-right: 16px;
         vertical-align: middle;
+        transition: transform 0.1s ease-in;
     }
 
     img.selected {
         opacity: 0;
         &#default-select{
             opacity: 1;
+
         }
     }
-
+    
     h2 {
+        color: #fff;
         display: inline-block;
         font-family: Hermit, sans-serif;
         font-size: 36px;
@@ -72,7 +86,7 @@
         	line-height: 18px;
             text-align: left;
         	font-family: Hermit, sans-serif;
-            font-size: 15px;
+            font-size: 18px;
             color: #fff;
 			padding: 5px;
             width: 320px;
@@ -104,6 +118,6 @@
 .schedule-date {
 	margin-top: 10px;
 	margin-bottom: 5px;
-	font-size: 17px;
+	font-size: 20px;
     font-weight: bold;
 }

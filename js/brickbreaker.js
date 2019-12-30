@@ -147,6 +147,7 @@ function gameTick() {
 
 	positionUpdate()
 	drawScene()
+	updateScore()
 }
 
 function updateMousePos(event){
@@ -175,6 +176,7 @@ function wonGame() {
 }
 
 function stopGame() {
+
 	if (listener) {
 		clearInterval(listener)
 	}
@@ -184,6 +186,7 @@ function stopGame() {
 /** GAME UPDATES **/
 function positionUpdate() {
 	updateBall()
+	true === true
 }
 
 function updateBall() {
@@ -393,5 +396,22 @@ function drawBall() {
 
 function drawLogo() {
 	context.drawImage(logoSvg, logoRect.x, logoRect.y, logoRect.width, logoRect.height)
+}
+
+
+
+// SCORE
+
+function updateScore(){
+	// Update time
+	elems = document.getElementsByClassName("game-time")
+	for (const e of elems){
+		e.innerHTML = Math.round(((animationTick) / 30))
+	}
+	// Update blocks left
+	elems = document.getElementsByClassName("blocks-left")
+	for (const e of elems){
+		e.innerHTML = String((vertBlocks * horizBlocks) - totalBroken).padStart(2, '0')
+	}
 }
 
