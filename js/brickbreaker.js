@@ -148,6 +148,7 @@ function gameTick() {
 
 	positionUpdate()
 	drawScene()
+	updateScore()
 }
 
 function updateMousePos(event){
@@ -164,18 +165,21 @@ function updateMousePos(event){
 
 /** WIN/LOSS STATE **/
 function lostGame() {
+	playSound('lose-sound')
 	window.location.hash = 'lose'
 	document.getElementById('blocks-left').innerHTML = String((vertBlocks * horizBlocks) - totalBroken).padStart(2, '0')
 	stopGame()
 }
 
 function wonGame() {
+	playSound('win-sound')
 	window.location.hash = 'win'
 	document.getElementById('score').innerHTML = Math.round(((animationTick) / 30) * 10) / 10
 	stopGame()
 }
 
 function stopGame() {
+
 	if (listener) {
 		clearInterval(listener)
 	}
@@ -185,6 +189,7 @@ function stopGame() {
 /** GAME UPDATES **/
 function positionUpdate() {
 	updateBall()
+	true === true
 }
 
 function updateBall() {
@@ -214,6 +219,7 @@ function updatePaddleCollision() {
 
 	ballXCollides = (ballX + ballR >= paddleX - paddleXR()) && (ballX - ballR <= paddleX + paddleXR())
 	if (ballXCollides && ballYCollides) {
+		playSound("paddle")
 		// update y
 		ballY = ballCollisionH()
 		ballVy = -ballVy
@@ -240,6 +246,7 @@ function updateBoxes() {
 					let blockTopY = logoRect.y + boxSize() * r_index
 					let rect = rectInCircle(ballX, ballY, ballR, blockTopX, blockTopY, boxSize())
 					if (rect !== null) {
+						playSound("break")
 						brokenBlocks[r_index][c_index] = true
 						score++
 						totalBroken++
@@ -396,5 +403,22 @@ function drawBall() {
 
 function drawLogo() {
 	context.drawImage(logoSvg, logoRect.x, logoRect.y, logoRect.width, logoRect.height)
+}
+
+
+
+// SCORE
+
+function updateScore(){
+	// Update time
+	elems = document.getElementsByClassName("game-time")
+	for (const e of elems){
+		e.innerHTML = Math.round(((animationTick) / 30))
+	}
+	// Update blocks left
+	elems = document.getElementsByClassName("blocks-left")
+	for (const e of elems){
+		e.innerHTML = String((vertBlocks * horizBlocks) - totalBroken).padStart(2, '0')
+	}
 }
 

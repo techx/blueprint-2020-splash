@@ -28,12 +28,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <!-- Link to local files -->
     <link rel="stylesheet" type="text/css" href="css/styles.min.css">
+    <link rel="icon" href="./assets/png/small_b.png" type="image/png" >
     <title>Blueprint 2020</title>
     <meta name="description" content="Blueprint is a weekend-long learnathon and hackathon for high school students. Learn from MIT students, make new friends, and build something cool!"/>
 </head>
 
 <body>
-    <video autoplay muted id="loading" src="assets/video/loading-nosound.mp4"></video>
+    <video autoplay muted id="loading" src="assets/video/animation2.mp4"></video>
+    <!-- <div id="loading-bg"></div> -->
+    <!-- <img src="assets/arcade2.png" id="loading-bg"/> -->
     <div class="grid-bg"></div>   
     <div id="squares"></div>
     <div style="overflow-x: hidden; overflow-y: hidden;">
@@ -46,37 +49,37 @@
             </div>
             <p>Blueprint is a weekend-long learnathon and hackathon for local high school students held on MIT's campus. Learn from MIT students, make new friends, and make something cool!</p>
             <ul class="items">
-                <li>
-                    <a id="menu-play" href="#play" id="play-button">
-                        <img class="default" src="assets/SVG/menu_triangle.svg" />
+                <li >
+                    <a id="menu-play" class="default hover" href="#play" id="play-button">
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
                         <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
                         <h2>play</h2>
                     </a>
                 </li>
                 <li>
                     <a id="menu-register" href="#register">
-                        <img class="default" src="assets/SVG/menu_triangle.svg" />
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
                         <img class="selected" src="assets/SVG/menu_select.svg" />
                         <h2>register</h2>
                     </a>
                 </li>
                 <li>
                     <a id="menu-schedule" href="#schedule">
-                        <img class="default" src="assets/SVG/menu_triangle.svg" />
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
                         <img class="selected" src="assets/SVG/menu_select.svg" />
                         <h2>schedule</h2>
                     </a>
                 </li>
                 <li>
                     <a id="menu-faq" href="#faq">
-                        <img class="default" src="assets/SVG/menu_triangle.svg" />
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
                         <img class="selected" src="assets/SVG/menu_select.svg" />
                         <h2>faq</h2>
                     </a>
                 </li>
                 <li>
                     <a id="menu-about" href="#about">
-                        <img class="default" src="assets/SVG/menu_triangle.svg" />
+                        <!-- <img class="default" src="assets/SVG/menu_triangle.svg" /> -->
                         <img class="selected" src="assets/SVG/menu_select.svg" />
                         <h2>about</h2>
                     </a>
@@ -93,9 +96,9 @@
             <br>
             <div id="default-faq-select" class="question faq-q">
                 <span>&#9658;</span>
-                what's the schedule
+                what's the schedule?
             </div>
-            <div class="answer">schedule is on website</div>
+            <div class="answer">schedule is on the website</div>
             <div class="question faq-q">
                 <span>&#9658;</span>
                 when can I apply?
@@ -164,7 +167,7 @@
             <h1>about</h1>
             <p>Over the course of Blueprint, you'll form a team, decide on a project, and develop it from start to finish with the support of our mentors. After Blueprint, you'll not only have this project but also the tools to learn more.</p>
                 <div class="schedule-items">
-                        <div id="about-learn" class="question">
+                        <div id="about-learn" class="question hover">
                             <!-- <span>&#9658;</span> -->
                             <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
                             <h2>learnathon</h2>
@@ -186,9 +189,11 @@
                         <div class="answer">
                             <p class="about-date">date: sunday, february 9th</p>
                             <ul>
-                                <li>Participate in hands-on workshops taught by MIT students and industry professionals on programming fundamentals, web programming, or Arduino</li>
-                                <li>Attend short 'tech talks' on specialized computer science topics</li>
-                                <li>Eager to get started? Check out <a href="https://starthacking.org/" target="_blank"><font color="24E5FF">StartHacking.org</font></a>!</li>
+
+                                <li>Put your new skills to practice!</li>
+                                <li>Form a team and experience the challenge and reward of building a project from scratch</li>
+                                <li>Consult mentors for personalized feedback and help with your project</li>
+                                <li>Interested in mentoring? Sign up <a href="https://go.hackmit.org/mentor" target="_blank"><font color="24E5FF">here</font></a>!</li>
                                       
                             </ul>
                         </div>
@@ -201,7 +206,7 @@
             </div>
             <br>
             <div class="schedule-items">
-                <div id="schedule-learn" class="question">
+                <div id="schedule-learn" class="question hover">
                     <!-- <span>&#9658;</span> -->
                     <img id="default-select" class="selected" src="assets/SVG/menu_select.svg" />
                     <h2>learnathon</h2>
@@ -228,7 +233,7 @@
                         </tr>
                         <tr>
                             <td class="schedule-time">12:00 pm</td>
-                            <td>lunch, activities expo</td>
+                            <td>lunch</td>
                         </tr>
                         <tr>
                             <td class="schedule-time">1:00 pm</td>
@@ -236,22 +241,30 @@
                         </tr>
                         <tr>
                             <td class="schedule-time">2:00 pm</td>
+                            <td>break</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">2:15 pm</td>
                             <td>workshop #3</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time">3:00 pm</td>
+                            <td class="schedule-time">3:15 pm</td>
                             <td>tech talk #2</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time">3:30 pm</td>
+                            <td class="schedule-time">3:45 pm</td>
+                            <td>break</td>
+                        </tr>
+                        <tr>
+                            <td class="schedule-time">4:00 pm</td>
                             <td>workshop #4</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time">4:30 pm</td>
+                            <td class="schedule-time">5:00 pm</td>
                             <td>closing ceremony</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time">5:00 pm</td>
+                            <td class="schedule-time">5:15 pm</td>
                             <td>end of learnathon</td>
                         </tr>
 
@@ -283,7 +296,7 @@
                             <td>MIT student panel</td>
                         </tr>
                         <tr>
-                            <td class="schedule-time">12:00 pm</td>
+                            <td class="schedule-time">12:30 pm</td>
                             <td>lunch</td>
                         </tr>
                         <tr>
@@ -321,7 +334,7 @@
             <div class="schedule-items">
                 <p class="score-label">your time was:</p>
                 <div id="score-box">
-                    <div id="score">0.0</div> 
+                    <div id="score" class="game-time">0.0</div> 
                     
                 </div>
                 <p class="score-sublabel">seconds</p>
@@ -349,9 +362,14 @@
             </div>
         </div>
         <div id="play" class="container hidden">
+            <div id="score-container">
+                <a id="game-time-label">time: <span class="game-time">0</span></a>
+                <a id="blocks-left-label">blocks: <span class="blocks-left">70</span></a>
+            </div>
             <canvas id="brickerbreaker-canvas"></canvas>
         </div>
     </div>
+    <script type="text/javascript" src="js/sounds.js"></script>
     <script type="text/javascript" src="js/selectors.js"></script>
     <script type="text/javascript" src="js/brickbreaker.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

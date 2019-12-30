@@ -1,3 +1,5 @@
+
+// Mobile features
 var isMobile = false;
 
 if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -9,10 +11,13 @@ if (isMobile) {
   document.getElementById("play-button").classList.add("hidden");
 }
 
+// Menu button
 const menuButton = document.getElementById("menu-button");
 menuButton.onclick = function(){ 
+  playSound("back")
   if(window.location.hash.substring(1) === "play"){stopGame() }
 }
+
 
 function updatePage() {
 
@@ -65,6 +70,8 @@ function updatePage() {
 
 }
 
+
+// Squares
 function generateSquares() {
   const numSquares = 25;
   const squares = document.getElementById("squares");
@@ -85,10 +92,9 @@ function generateSquares() {
       square.classList.add("yellow");
     }
 
-    // Random position between 5-80% vertically, 5-95% horizontally
-    square.style.top = (Math.random() * 75 + 5) + "%";
+    // Random position between 5-65% vertically, 5-95% horizontally
+    square.style.top = (Math.random() * 50 + 5) + "%";
     square.style.left = (Math.random() * 90 + 5) + "%";
-
     squares.appendChild(square);
   }
 }
@@ -107,10 +113,12 @@ function parseCookies() {
   return cookies;
 }
 
+
+// Beginning video 
 function setAnimationCookie() {
   const currentTime = new Date().getTime();
-  const eightHours = 1000 * 60 * 60 * 8;
-  const expireDate = new Date(currentTime + eightHours);
+  const oneWeek = 1000 * 60 * 60 * 24 * 7;
+  const expireDate = new Date(currentTime + oneWeek);
 
   document.cookie = "animation=" + new Date() + "; expires=" + expireDate + "; path=/";
 }
@@ -121,9 +129,9 @@ function shouldAnimate() {
   if ("animation" in cookies) {
     const lastAnimationTime = new Date(cookies["animation"]).getTime();
     const timeSinceLastAnimation = new Date().getTime() - lastAnimationTime;
-    const eightHours = 1000 * 60 * 60 * 8;
+    const oneWeek = 1000 * 60 * 60 * 24 * 7;
 
-    return timeSinceLastAnimation >= eightHours;
+    return timeSinceLastAnimation >= oneWeek;
   }
 
   return true;
@@ -136,12 +144,11 @@ if (!shouldAnimate()) {
 
 document.onkeydown = shouldAnimate() ? function(e) {
   const video = document.getElementById("loading");
-
   // Spacebar
   if (e.keyCode === 32) {
     video.style.opacity = 0;
     console.log("SPACE")
-    
+
     //add button pressing
     document.addEventListener('keydown', handleMenu);
 
@@ -150,6 +157,9 @@ document.onkeydown = shouldAnimate() ? function(e) {
     }, 500);
   }
 } : null;
+
+
+
 
 var containers = document.getElementsByClassName("container")
 for(let i=0; i < containers.length; i++){
@@ -210,7 +220,7 @@ for (let i = 0; i < coll.length; i++) {
 
 
 //Replay Button
-let btns = Array.from(document.getElementsByClassName('replay-btn'))
-btns.map(function(a){
-  a.onclick = function(){window.location.hash = 'play'}
-})
+document.getElementById('win-button').onclick = function(){
+  window.location.hash = 'play'
+}
+

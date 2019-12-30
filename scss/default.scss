@@ -91,7 +91,7 @@ body {
     color: #fff;
     font-family: Hermit, sans-serif;
     font-size: 24px;
-    position: absolute;
+    position: fixed;
     top: 16px;
     left: 16px;
     z-index: 10;
@@ -100,6 +100,47 @@ body {
         color: #4699d3;
     }
 }
+
+
+// #score-container{
+//     display: flex;
+//     // position: absolute;
+//     padding-top: 16px;
+//     // top: 16px;
+//     justify-content: center;
+
+// }
+
+#game-time-label {
+    color: #fff;
+    font-family: Hermit, sans-serif;
+    font-size: 24px;
+    position: absolute;
+    top: 16px;
+    right: 0px;
+    // left: 50%;
+    margin-right: 45%;
+
+    .game-time {
+        display: relative;
+    }
+
+}
+
+#blocks-left-label {
+    color: #fff;
+    font-family: Hermit, sans-serif;
+    font-size: 24px;
+    position: absolute;
+    top: 16px;
+    right: 26px;
+
+    .blocks-left {
+        display: relative;
+    }
+}
+
+
 
 .page-title {
 	color: $light_accent;
@@ -117,14 +158,20 @@ body {
 @keyframes float {
     from {
         margin-top: 0;
+        width: 24px;
+        height: 24px;
     }
 
     50% {
         margin-top: 32px;
+        width: 27px;
+        height: 27px;
     }
 
     to {
         margin-top: 0;
+        width: 24px;
+        height: 24px;
     }
 }
 
