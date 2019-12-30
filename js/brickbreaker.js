@@ -164,12 +164,14 @@ function updateMousePos(event){
 
 /** WIN/LOSS STATE **/
 function lostGame() {
+	playSound('lose-sound')
 	window.location.hash = 'lose'
 	document.getElementById('blocks-left').innerHTML = String((vertBlocks * horizBlocks) - totalBroken).padStart(2, '0')
 	stopGame()
 }
 
 function wonGame() {
+	playSound('win-sound')
 	window.location.hash = 'win'
 	document.getElementById('score').innerHTML = Math.round(((animationTick) / 30) * 10) / 10
 	stopGame()
@@ -216,6 +218,7 @@ function updatePaddleCollision() {
 
 	ballXCollides = (ballX + ballR >= paddleX - paddleXR()) && (ballX - ballR <= paddleX + paddleXR())
 	if (ballXCollides && ballYCollides) {
+		playSound("paddle")
 		// update y
 		ballY = ballCollisionH()
 		ballVy = -ballVy
@@ -242,6 +245,7 @@ function updateBoxes() {
 					let blockTopY = logoRect.y + boxSize() * r_index
 					let rect = rectInCircle(ballX, ballY, ballR, blockTopX, blockTopY, boxSize())
 					if (rect !== null) {
+						playSound("break")
 						brokenBlocks[r_index][c_index] = true
 						score++
 						totalBroken++
