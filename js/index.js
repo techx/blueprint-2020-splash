@@ -220,7 +220,9 @@ for (let i = 0; i < coll.length; i++) {
 
 
 //Replay Button
-document.getElementById('win-button').onclick = function(){
-  window.location.hash = 'play'
+for (let elem of document.getElementsByClassName('replay-btn')){
+  elem.onclick = function(){
+    window.location.hash = 'play'
+  }
 }
 

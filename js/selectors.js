@@ -23,6 +23,7 @@ for(let i=0; i < faqItems.length; i++){
     currentFaq = i
   }
   faqItems[i].onclick = function(){
+    console.log("bruh2")
     playSound("expand")
     if(faqItems[i].childNodes[1].style.transform === ""){
       faqItems[i].childNodes[1].style.transform = "rotate(90deg)"
@@ -45,7 +46,6 @@ function handleFaq(e){
       currentFaq = (faqItems.length + currentFaq + 1) % faqItems.length
     }
     else if(e.key === "Enter") {
-      playSound("expand")
       faqItems[currentFaq].click()
       // console.log("FAQ CLICK")
     }
@@ -84,6 +84,8 @@ for (let [key, menuItems] of Object.entries(allItems)){
     }
     if(key !== 'home'){
       item.onclick = function(){
+        console.log("bruh1")
+        playSound("expand")
         if(item.childNodes[3].style.transform === "rotate(90deg)"){
           item.childNodes[3].style.transform = ""
         }
@@ -92,7 +94,9 @@ for (let [key, menuItems] of Object.entries(allItems)){
         }
       }
     }
-    else{ item.onclick = function(){ playSound("select") }}
+    else{ 
+      item.onclick = function(){ playSound("select")}
+    }
   }
 }
 
@@ -113,10 +117,7 @@ function handleMenu(e){
       currentSelected[url] = (menuItems.length + currentSelected[url] + 1) % menuItems.length
       playSound("menu_change")
     }
-    else if(e.key === "Enter" && (url !== 'register' && url !== 'play')) {
-      if(url === "home"){playSound("select")}
-      else { playSound("expand") }
-      
+    else if(e.key === "Enter" && (url !== 'register' && url !== 'play')) {     
       bruh = document.getElementById(menuItems[currentSelected[url]])
       // console.log(bruh)
       bruh.click()
@@ -140,7 +141,9 @@ function handleMenu(e){
 
 
 
-document.getElement
+
+document.getElementById('win-button').onclick
+
 document.addEventListener('keydown', handleReplay);
 function handleReplay(e){
   url = window.location.hash.substring(1)
