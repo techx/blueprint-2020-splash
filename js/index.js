@@ -134,7 +134,7 @@ function shouldAnimate() {
     return timeSinceLastAnimation >= oneWeek;
   }
 
-  return true;
+  return !isMobile;
 }
 
 if (!shouldAnimate()) {
