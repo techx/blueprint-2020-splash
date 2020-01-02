@@ -335,7 +335,7 @@ function pointInCircle(x, y, cx, cy, radius) {
 }
 
 /** DRAWING **/
-const borderTolerance = 1
+const borderTolerance = 0.5
 
 function clearWithTolerance(context, top, bot, width, height) {
 	context.clearRect(top + borderTolerance/2, bot + borderTolerance/2, width + borderTolerance, height + borderTolerance)
