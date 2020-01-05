@@ -176,7 +176,6 @@ function updateTouchPos(event){
 
  	touchX = event.touches[0].clientX - rect.left - root.scrollLeft;
   	touchY = event.touches[0].clientY - rect.top - root.scrollTop;
-	console.log(event)
   	//check that in bounds
   	touchX = Math.min(Math.max(paddleXR(), touchX), gameWidth - paddleXR())
 
