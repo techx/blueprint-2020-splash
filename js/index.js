@@ -8,7 +8,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 }
 
 if (isMobile) {
-  document.getElementById("play-button").classList.add("hidden");
+  document.getElementById("menu-play").classList.add("hidden");
 }
 
 // Menu button
@@ -20,7 +20,7 @@ menuButton.onclick = function(){
 
 
 function updatePage() {
-
+  console.log("HASH CHANGE")
   const pages = ["home", "play", "about", "register", "schedule", "faq", "win", "lose"];
   const newPageId = window.location.hash.substring(1);
 
@@ -46,6 +46,7 @@ function updatePage() {
   currentPage.style.opacity = 0;
   let timeout = newPageId === "play" ? 0 : 150
   setTimeout(function(){
+    console.log("this function works")
     currentPage.classList.add("hidden");
     var newPage = document.getElementById(newPageId)
     newPage.classList.remove("hidden");
