@@ -137,9 +137,13 @@ function shouldAnimate() {
   return true;
 }
 
-if (!shouldAnimate() || isMobile) {
-  const video = document.getElementById("loading");
-  video.classList.add("hidden");
+if (shouldAnimate() && !isMobile) {
+  const video = document.createElement("video");
+  video.setAttribute("autoplay", "");
+  video.setAttribute("muted", "");
+  video.setAttribute("id", "loading");
+  video.setAttribute("src", "assets/video/animation2.mp4");
+  document.body.insertBefore(video, document.body.childNodes[0]);
 }
 
 document.onkeydown = shouldAnimate() ? function(e) {
